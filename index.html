@@ -127,15 +127,16 @@ pointer-events: none;
 }
 </style>
 </head>
-<body class="text-bronze-800 antialiased flex flex-col min-h-screen overflow-x-hidden">
+<!-- 預設 body overflow-hidden 鎖定滾動，直到點擊開啟邀請函 -->
+<body class="text-bronze-800 antialiased flex flex-col min-h-screen overflow-x-hidden overflow-hidden">
 
-<!-- 1. 迎賓開場封面 (慢慢緩緩滑上去的特效) -->
+<!-- 1. 迎賓開場封面 (修復：已設定超高 z- 確保絕對覆蓋，不與內容重疊) -->
 <div id="welcomeOverlay" class="fixed inset-0 z- flex flex-col items-center justify-center text-bronze-800 transition-all duration-[2000ms] ease-in-out" style="background-image: url('sheng_de_temple_invitation_bg.png'); background-size: cover; background-position: center;">
-  <!-- 微霧化磨砂疊加，使字體與背景融合得更溫馨高級 -->
-  <div class="absolute inset-0 bg-white/25 backdrop-blur-[2px]"></div>
+  <!-- 微霧化磨砂疊加 -->
+  <div class="absolute inset-0 bg-white/40 backdrop-blur-[4px]"></div>
   
   <div class="relative z-10 text-center px-6 flex flex-col items-center max-w-lg">
-    <!-- 高級感金色蓮花裝飾 (與圖片荷花呼應) -->
+    <!-- 高級感金色蓮花裝飾 -->
     <div class="text-templeGold-600 text-3xl mb-4 animate-pulse">
       <i class="fa-solid fa-seedling"></i>
     </div>
@@ -156,8 +157,9 @@ pointer-events: none;
 <button id="musicBtn" class="bg-white/90 backdrop-blur-md border border-templeGold-500/30 shadow-md text-templeGold-700 w-11 h-11 rounded-full flex items-center justify-center focus:outline-none transition-transform hover:scale-105 active:scale-95" onclick="toggleMusic()">
 <i id="musicIcon" class="fa-solid fa-compact-disc text-lg"></i>
 </button>
-<!-- 卡農 Canon in D 高品質背景音樂 -->
+<!-- 音樂播放器：優先讀取您的 canon.mp3，若無則備用網路卡農音樂 -->
 <audio id="bgMusic" loop preload="auto">
+<source src="canon.mp3" type="audio/mpeg">
 <source src="https://archive.org/download/pachelbel-canon-in-d/Pachelbel_Canon_in_D.mp3" type="audio/mpeg">
 您的瀏覽器不支援音訊播放。
 </audio>
@@ -165,7 +167,6 @@ pointer-events: none;
 
 <!-- 3. 主視覺 Banner Section (溫馨奢華感) -->
 <header class="relative w-full h-[60vh] md:h-[70vh] flex items-center justify-center overflow-hidden text-center px-4">
-<!-- 頂部與背景圖完美重合，透過半透明薄霧營造空間感 -->
 <div class="absolute inset-0 bg-white/20"></div>
 <div class="relative z-10 max-w-xl px-6 py-10 border border-templeGold-500/20 rounded-2xl bg-white/70 backdrop-blur-md flex flex-col items-center shadow-lg">
 <div class="text-templeGold-700 text-xl mb-3 tracking-[0.4em] font-medium">🙏 天恩師德</div>
@@ -385,7 +386,7 @@ pointer-events: none;
 </select>
 </div>
 
-<!-- 新的確認登記按鈕：移除了 WhatsApp 跳轉、變得非常高級 -->
+<!-- 高級確認登記按鈕 -->
 <button type="button" onclick="submitRSVP()" class="shine-effect w-full py-3.5 px-6 bg-gradient-to-r from-templeGold-600 to-templeGold-700 hover:from-templeGold-700 hover:to-templeGold-600 text-white rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-bold flex items-center justify-center gap-2 text-base transition-all">
 <i class="fa-regular fa-circle-check text-lg"></i>
 <span>確認提交出席登記</span>
@@ -428,9 +429,9 @@ pointer-events: none;
 </div>
 </footer>
 
-<!-- 11. 【新增】高質感登記成功彈窗 (感恩回執彈窗) -->
+<!-- 11. 高質感登記成功彈窗 (已修正 z- 層級) -->
 <div id="successModal" class="fixed inset-0 z- hidden items-center justify-center bg-black/60 backdrop-blur-md px-4">
-  <div class="bg-white/95 border border-templeGold-500/20 p-8 max-w-sm w-full rounded-2xl shadow-2xl text-center space-y-5 animate-[fadeIn_0.3s_ease-out]">
+  <div class="bg-white/95 border border-templeGold-500/20 p-8 max-w-sm w-full rounded-2xl shadow-2xl text-center space-y-5">
     <div class="w-16 h-16 bg-templeGold-100 text-templeGold-700 rounded-full flex items-center justify-center text-3xl mx-auto animate-bounce">
       🙏
     </div>
@@ -479,12 +480,15 @@ const musicBtn = document.getElementById("musicBtn");
 const musicIcon = document.getElementById("musicIcon");
 let isPlaying = false;
 
-// 點擊「開啟邀請函」：封面緩緩往上滑開，卡農音樂播放
+// 點擊「開啟邀請函」：封面緩緩往上滑開，音樂播放，並解除網頁鎖定滾動
 function openInvitation() {
   const overlay = document.getElementById("welcomeOverlay");
   overlay.classList.add("slide-up-exit");
   
-  // 延遲播放音樂，確保與動畫同步
+  // 核心修復：點開後解除 body 的 overflow-hidden，允許前賢自由往下瀏覽網頁
+  document.body.classList.remove("overflow-hidden");
+  
+  // 啟動音樂
   bgMusic.play().then(() => {
     musicIcon.classList.add("rotating-music");
     musicIcon.classList.remove("fa-circle-play");
@@ -519,7 +523,7 @@ alert("請再次點擊播放音樂 🎵");
 }
 }
 
-// 3. 報名資料收集、儲存至 Google 試算表（不跳轉 WhatsApp）
+// 3. 報名資料收集、儲存至 Google 試算表
 function submitRSVP() {
   const name = document.getElementById("rsvpName").value.trim();
   const phone = document.getElementById("rsvpPhone").value.trim();
@@ -532,15 +536,15 @@ function submitRSVP() {
   }
 
   // ----------------【同步傳送資料至 Google Sheet】----------------
-  // ⚠️ 請在此處填入您在 Apps Script 產生的「網頁應用程式網址」
-  const googleAppScriptUrl = "您的_GOOGLE_WEB_APP_網址"; 
+  // ⚠️ 請在此處填入您在 Apps Script 產生的「網頁應用程式網址」！
+  const googleAppScriptUrl = "https://script.google.com/macros/s/AKfycbzqWwU1BGsF3r91qDaJg6rkOaYsR6mbsM5mbNfPyWao8xJNQMXTbprgacmGTdm0mM__/exec"; 
   
   const formData = new FormData();
   formData.append("name", name);
   formData.append("phone", phone);
   formData.append("timeSlot", timeSlot);
   formData.append("attendees", attendeesCount);
-  formData.append("contact", "預設直接登記"); 
+  formData.append("contact", "直接登記系統"); 
 
   // 背景傳送資料至 Google Sheet
   fetch(googleAppScriptUrl, {
@@ -550,12 +554,11 @@ function submitRSVP() {
   })
   .then(() => {
     console.log("報名資料已成功記錄至 Google Sheet！");
-    // 成功後顯示精美回執彈窗
     showSuccessModal();
   })
   .catch(err => {
     console.error("傳送至 Google Sheet 失敗：", err);
-    // 即便傳送出錯也彈窗，確保訪客體驗流暢
+    // 即便可能出錯（如本地網絡延遲），也顯示精美回執彈窗保障用戶體驗
     showSuccessModal();
   });
 }
