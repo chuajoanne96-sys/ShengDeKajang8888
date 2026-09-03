@@ -1,29 +1,4 @@
-function doPost(e) {
-  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-  
-  // 取得網頁傳送過來的最新欄位資料
-  var name = e.parameter.name;
-  var phone = e.parameter.phone;
-  var timeSlot = e.parameter.timeSlot;
-  var adults = e.parameter.adults;
-  var children = e.parameter.children;
-  
-  // 自動在試算表最後一行新增資料
-  sheet.appendRow([
-    new Date(), // 自動記錄登記時間 (A欄)
-    name,       // 前賢姓名 (B欄)
-    phone,      // 聯絡電話 (C欄)
-    timeSlot,   // 預計出席時段 (D欄)
-    adults,     // 大人人數 (E欄)
-    children,   // 小孩人數 (F欄)
-    "直接登記系統"
-  ]);
-  
-  return ContentService.createTextOutput("Success")
-    .setMimeType(ContentService.MimeType.TEXT);
-}
-📋 第二步：完整修改後的網頁 HTML 程式碼
-請點擊右上角的「複製」按鈕，直接覆蓋您 GitHub 中的 index.html 檔案：
+
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
@@ -554,7 +529,7 @@ function submitRSVP() {
 
   // ----------------【同步傳送資料至 Google Sheet】----------------
   // ⚠️ 請在此處填入您在 Apps Script 產生的最新「網頁應用程式網址」！
-  const googleAppScriptUrl = "https://script.google.com/macros/s/AKfycbzqWwU1BGsF3r91qDaJg6rkOaYsR6mbsM5mbNfPyWao8xJNQMXTbprgacmGTdm0mM__/exec"; 
+  const googleAppScriptUrl = "https://script.google.com/macros/s/AKfycbzIrfoFz5TGrvM8l-ePcqVWUQ6Yfy-Eorjsvo8yQL_-KMXsSKmwY3fhP2nNHn4dvGx2/exec"; 
   
   const formData = new FormData();
   formData.append("name", name);
