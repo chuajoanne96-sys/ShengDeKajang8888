@@ -167,11 +167,6 @@ right: 20px;
 誠摯邀約 • 同霑法喜
 </p>
 </div>
-<!-- 往下滾動指引 -->
-<div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-templeGold-700 text-xs tracking-widest flex flex-col items-center animate-bounce">
-<span>往下探索</span>
-<i class="fa-solid fa-chevron-down mt-1.5"></i>
-</div>
 </header>
 
 <!-- 3. 邀請內容與緣起 Section (已套用優雅向上的微風滑動) -->
@@ -474,32 +469,49 @@ document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0
 setInterval(updateCountdown, 1000);
 updateCountdown();
 
-// 2. 背景音樂控制
+// 2. 背景音樂控制與突破瀏覽器自動播放限制的點擊監聽器
 const bgMusic = document.getElementById("bgMusic");
 const musicBtn = document.getElementById("musicBtn");
 const musicIcon = document.getElementById("musicIcon");
 let isPlaying = false;
 
-function toggleMusic() {
-if (isPlaying) {
-bgMusic.pause();
-musicIcon.classList.remove("rotating-music");
-musicIcon.classList.remove("fa-compact-disc");
-musicIcon.classList.add("fa-circle-play");
-musicIcon.classList.add("text-gray-400");
-isPlaying = false;
-} else {
-bgMusic.play().then(() => {
-musicIcon.classList.add("rotating-music");
-musicIcon.classList.remove("fa-circle-play");
-musicIcon.classList.add("fa-compact-disc");
-musicIcon.classList.remove("text-gray-400");
-isPlaying = true;
-}).catch(e => {
-console.log("播放被瀏覽器阻擋:", e);
-alert("請再次點擊播放音樂 🎵");
-});
+// 輕觸螢幕任意地方即自動播放音樂（突破瀏覽器自動播放限制）
+document.addEventListener('click', function() {
+  if (!isPlaying) {
+    playMusic();
+  }
+}, { once: true });
+
+document.addEventListener('touchstart', function() {
+  if (!isPlaying) {
+    playMusic();
+  }
+}, { once: true });
+
+function playMusic() {
+  bgMusic.play().then(() => {
+    musicIcon.classList.add("rotating-music");
+    musicIcon.classList.remove("fa-circle-play");
+    musicIcon.classList.add("fa-compact-disc");
+    musicIcon.classList.remove("text-gray-400");
+    isPlaying = true;
+  }).catch(e => {
+    console.log("自動播放被安全政策阻擋，等待手動點擊:", e);
+  });
 }
+
+// 右上角手動音樂按鈕切換
+function toggleMusic() {
+  if (isPlaying) {
+    bgMusic.pause();
+    musicIcon.classList.remove("rotating-music");
+    musicIcon.classList.remove("fa-compact-disc");
+    musicIcon.classList.add("fa-circle-play");
+    musicIcon.classList.add("text-gray-400");
+    isPlaying = false;
+  } else {
+    playMusic();
+  }
 }
 
 // 3. 【新功能】大人與小孩 + / - 按鈕點擊交互邏輯
