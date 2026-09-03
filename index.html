@@ -1,522 +1,501 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 網頁標題與分享預覽設定 -->
-    <title>【聖德壇設壇安座大典】誠摯邀約</title>
-    <meta name="description" content="聖德壇即將正式設壇安座！這是一場天人共慶的殊勝盛會。全體壇主與道親，誠摯地邀請您撥冗蒞臨，同霑法喜。">
-    <!-- Open Graph (用於 WhatsApp 分享預覽) -->
-    <meta property="og:title" content="【聖德壇設壇安座大典】誠摯邀約 📅 2026年9月16日">
-    <meta property="og:description" content="誠摯邀請前賢大德撥冗蒞臨，共襄盛舉，同霑法喜。">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1609137144814-1e765ec4a02d?auto=format&fit=crop&q=80&w=1000"> <!-- 可替換為安座大典主視覺圖 -->
-    <meta property="og:type" content="website">
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts 莊嚴的宋體/明體 -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
-    <!-- FontAwesome 圖標 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        templeRed: {
-                            50: '#FDF2F2',
-                            100: '#FDE8E8',
-                            700: '#9B1C1C',
-                            800: '#8B1E1A', // 莊嚴暗紅
-                            900: '#6B1210',
-                        },
-                        templeGold: {
-                            50: '#FFFDF0',
-                            100: '#FEF9E7',
-                            500: '#D4AF37', // 典雅黃金
-                            600: '#C59B27',
-                            700: '#AA821C',
-                        },
-                        sand: {
-                            50: '#FAF8F5',
-                            100: '#F5EFE6',
-                            200: '#E8DFD0',
-                        }
-                    },
-                    fontFamily: {
-                        serif: ['Noto Serif TC', 'serif'],
-                    }
-                }
-            }
-        }
-    </script>
-
-    <style>
-        body {
-            font-family: 'Noto Serif TC', serif;
-            background-color: #FAF8F5;
-        }
-        html {
-            scroll-behavior: smooth;
-        }
-        /* 金色光芒流過動畫 */
-        @keyframes shine {
-            0% { left: -100%; }
-            50% { left: 100%; }
-            100% { left: 100%; }
-        }
-        .shine-effect {
-            position: relative;
-            overflow: hidden;
-        }
-        .shine-effect::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-            transition: none;
-            animation: shine 4s infinite linear;
-        }
-        /* 音樂旋轉動畫 */
-        @keyframes rotateMusic {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        .rotating-music {
-            animation: rotateMusic 8s infinite linear;
-        }
-        /* 漸層邊框與傳統花紋裝飾 */
-        .temple-border-box {
-            position: relative;
-            border: 2px solid #D4AF37;
-        }
-        .temple-border-box::before, .temple-border-box::after {
-            content: '✦';
-            position: absolute;
-            color: #D4AF37;
-            font-size: 14px;
-            background-color: #FFFDF0;
-            padding: 0 6px;
-        }
-        .temple-border-box::before {
-            top: -12px;
-            left: 16px;
-        }
-        .temple-border-box::after {
-            bottom: -12px;
-            right: 16px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- 網頁標題與分享預覽設定 -->
+<title>【聖德壇設壇安座大典】誠摯邀約</title>
+<meta name="description" content="聖德壇即將正式設壇安座！這是一場天人共慶的殊勝盛會。全體壇主與道親，誠摯地邀請您撥冗蒞臨，同霑法喜。">
+<!-- Open Graph (用於 WhatsApp 分享預覽) -->
+<meta property="og:title" content="【聖德壇設壇安座大典】誠摯邀約 📅 2026年9月16日">
+<meta property="og:description" content="誠摯邀請前賢大德撥冗蒞臨，共襄盛舉，同霑法喜。">
+<meta property="og:image" content="https://images.unsplash.com/photo-1609137144814-1e765ec4a02d?auto=format&fit=crop&q=80&w=1000"> <!-- 可替換為安座大典主視覺圖 -->
+<meta property="og:type" content="website">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Google Fonts 莊嚴的宋體/明體 -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<!-- FontAwesome 圖標 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+templeRed: {
+50: '#FDF2F2',
+100: '#FDE8E8',
+700: '#9B1C1C',
+800: '#8B1E1A', // 莊嚴暗紅
+900: '#6B1210',
+},
+templeGold: {
+50: '#FFFDF0',
+100: '#FEF9E7',
+500: '#D4AF37', // 典雅黃金
+600: '#C59B27',
+700: '#AA821C',
+},
+sand: {
+50: '#FAF8F5',
+100: '#F5EFE6',
+200: '#E8DFD0',
+}
+},
+fontFamily: {
+serif: ['Noto Serif TC', 'serif'],
+}
+}
+}
+}
+</script>
+<style>
+body {
+font-family: 'Noto Serif TC', serif;
+background-color: #FAF8F5;
+}
+html {
+scroll-behavior: smooth;
+}
+/* 金色光芒流過動畫 */
+@keyframes shine {
+0% { left: -100%; }
+50% { left: 100%; }
+100% { left: 100%; }
+}
+.shine-effect {
+position: relative;
+overflow: hidden;
+}
+.shine-effect::after {
+content: '';
+position: absolute;
+top: 0;
+left: -100%;
+width: 100%;
+height: 100%;
+background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+transition: none;
+animation: shine 4s infinite linear;
+}
+/* 音樂旋轉動畫 */
+@keyframes rotateMusic {
+from { transform: rotate(0deg); }
+to { transform: rotate(360deg); }
+}
+.rotating-music {
+animation: rotateMusic 8s infinite linear;
+}
+/* 漸層邊框與傳統花紋裝飾 */
+.temple-border-box {
+position: relative;
+border: 2px solid #D4AF37;
+}
+.temple-border-box::before, .temple-border-box::after {
+content: '✦';
+position: absolute;
+color: #D4AF37;
+font-size: 14px;
+background-color: #FFFDF0;
+padding: 0 6px;
+}
+.temple-border-box::before {
+top: -12px;
+left: 16px;
+}
+.temple-border-box::after {
+bottom: -12px;
+right: 16px;
+}
+</style>
 </head>
 <body class="text-gray-800 antialiased flex flex-col min-h-screen">
+<!-- 頂部浮動背景音樂播放器 -->
+<div class="fixed top-4 right-4 z-50">
+<button id="musicBtn" class="bg-white/90 backdrop-blur-md border border-templeGold-500/50 shadow-lg text-templeGold-700 w-12 h-12 rounded-full flex items-center justify-center focus:outline-none transition-transform hover:scale-105 active:scale-95" onclick="toggleMusic()">
+<i id="musicIcon" class="fa-solid fa-compact-disc text-xl rotating-music"></i>
+</button>
+<!-- 預設高品質、莊嚴肅穆的古琴背景音樂 -->
+<audio id="bgMusic" loop preload="auto">
+<source src="https://archive.org/download/classic-chinese-music-instrumental-guqin/Classic%20Chinese%20Music%20Instrumental-Guqin%20%28Ancient%20Zither%29.mp3" type="audio/mpeg">
+您的瀏覽器不支援音訊播放。
+</audio>
+</div>
+<!-- 主視覺 Banner (Hero) Section -->
+<header class="relative w-full h-[65vh] md:h-[75vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-templeRed-900 to-templeRed-800 text-white text-center px-4">
+<!-- 背景圖裝飾 -->
+<div class="absolute inset-0 opacity-25 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1609137144814-1e765ec4a02d?auto=format&fit=crop&q=80&w=1200');"></div>
+<!-- 東方典雅圖案疊加 -->
+<div class="absolute inset-0 bg-radial-gradient from-transparent to-black/40"></div>
+<!-- 主視覺文字內容 -->
+<div class="relative z-10 max-w-2xl px-4 py-8 border-2 border-templeGold-500/30 m-2 rounded-lg bg-black/10 backdrop-blur-[1px] flex flex-col items-center">
+<div class="text-templeGold-500 text-2xl md:text-3xl mb-3 tracking-[0.4em] font-medium animate-pulse">🙏 天恩師德</div>
+<h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-templeGold-500 tracking-[0.25em] leading-snug drop-shadow-lg mb-4">
+聖德壇
+</h1>
+<p class="text-xl md:text-2xl font-bold tracking-[0.2em] text-templeGold-100 mb-6 drop-shadow-md">
+設壇安座大典
+</p>
+<div class="w-16 h-[2px] bg-templeGold-500 mb-6"></div>
+<p class="text-sm md:text-base tracking-[0.3em] font-light text-sand-100 uppercase">
+誠摯邀約 • 同霑法喜
+</p>
+</div>
+<!-- 往下滾動指引 -->
+<div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-templeGold-500 text-xs tracking-widest flex flex-col items-center animate-bounce">
+<span>往下探索</span>
+<i class="fa-solid fa-chevron-down mt-2"></i>
+</div>
+</header>
+<!-- 邀請內容與緣起 Section -->
+<section class="max-w-3xl mx-auto px-4 py-16 text-center">
+<div class="temple-border-box bg-templeGold-50 p-8 md:p-12 rounded-lg shadow-md border-templeGold-500/30">
+<div class="text-templeGold-700 text-lg mb-6 flex justify-center items-center gap-2">
+<span class="h-[1px] w-8 bg-templeGold-500"></span>
+<span>誠摯邀約</span>
+<span class="h-[1px] w-8 bg-templeGold-500"></span>
+</div>
+<p class="text-lg md:text-xl font-bold text-templeRed-800 tracking-wider mb-8">
+各位前賢大德，大家好：
+</p>
+<div class="space-y-6 text-gray-700 leading-relaxed tracking-wide text-base md:text-lg">
+<p>感謝 <strong class="text-templeRed-800 font-bold">天恩師德浩瀚</strong>！</p>
+<p>
+感謝 <strong>老祖師宏慈悲愿</strong>，<strong>師尊師母聖德無疆</strong>；<br>
+感恩 <strong>白水聖帝、不休息菩薩聖靈護佑</strong>。
+</p>
+<p>
+在點傳師慈悲提携，以及各位壇主、講師的鼓勵成全下，我們的「<strong class="text-templeRed-800 font-bold">聖德壇</strong>」即將正式設壇安座！
+</p>
+<p>
+這是一場天人共慶的殊勝盛會。聖德壇全體壇主與道親，懷著無比感恩與法喜的心，誠摯地邀請各位前賢大德、親朋好友撥冗蒞臨，共襄盛舉，同霑法喜。
+</p>
+<p class="text-templeRed-800 font-medium">
+讓我們齊聚一堂，共同見證這莊嚴美好的時刻，凝聚善念，廣結善緣！
+</p>
+</div>
+<div class="mt-8 flex justify-center">
+<i class="fa-solid fa-seedling text-templeGold-600 text-2xl"></i>
+</div>
+</div>
+</section>
+<!-- 倒數計時 Section -->
+<section class="bg-gradient-to-r from-templeRed-900 to-templeRed-800 text-white py-12 px-4 shadow-inner">
+<div class="max-w-3xl mx-auto text-center">
+<h3 class="text-templeGold-500 font-bold tracking-[0.2em] text-lg mb-6">—— 距離安座莊嚴大典還有 ——</h3>
+<div class="grid grid-cols-4 gap-2 md:gap-4 max-w-md mx-auto" id="countdown">
+<div class="bg-black/20 backdrop-blur-sm p-3 md:p-4 rounded-lg border border-templeGold-500/20">
+<span id="days" class="block text-2xl md:text-4xl font-bold text-templeGold-500">00</span>
+<span class="text-xs tracking-wider text-sand-200 mt-1 block">天</span>
+</div>
+<div class="bg-black/20 backdrop-blur-sm p-3 md:p-4 rounded-lg border border-templeGold-500/20">
+<span id="hours" class="block text-2xl md:text-4xl font-bold text-templeGold-500">00</span>
+<span class="text-xs tracking-wider text-sand-200 mt-1 block">時</span>
+</div>
+<div class="bg-black/20 backdrop-blur-sm p-3 md:p-4 rounded-lg border border-templeGold-500/20">
+<span id="minutes" class="block text-2xl md:text-4xl font-bold text-templeGold-500">00</span>
+<span class="text-xs tracking-wider text-sand-200 mt-1 block">分</span>
+</div>
+<div class="bg-black/20 backdrop-blur-sm p-3 md:p-4 rounded-lg border border-templeGold-500/20">
+<span id="seconds" class="block text-2xl md:text-4xl font-bold text-templeGold-500">00</span>
+<span class="text-xs tracking-wider text-sand-200 mt-1 block">秒</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 殊勝流程表 Section -->
+<section id="program" class="max-w-3xl mx-auto px-4 py-16">
+<h2 class="text-2xl md:text-3xl font-bold text-center text-templeRed-800 tracking-[0.2em] mb-12 flex justify-center items-center gap-3">
+<i class="fa-solid fa-sparkles text-templeGold-500 text-xl"></i>
+<span>殊勝流程表</span>
+<i class="fa-solid fa-sparkles text-templeGold-500 text-xl"></i>
+</h2>
+<div class="relative border-l-2 border-templeGold-500/40 ml-4 md:ml-12 space-y-10 py-2">
+<!-- 節點 1 -->
+<div class="relative pl-8 md:pl-12">
+<span class="absolute -left-[11px] top-1.5 w-5 h-5 rounded-full bg-templeGold-500 border-4 border-white shadow-md flex items-center justify-center"></span>
+<div class="bg-white p-5 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+<span class="inline-block text-xs font-bold px-2 py-1 bg-templeGold-100 text-templeGold-700 rounded mb-2 font-serif">09:30 AM</span>
+<h4 class="text-lg font-bold text-templeRed-800 mb-1">前賢入席</h4>
+<p class="text-gray-600 text-sm md:text-base">溫馨相聚，沉澱身心</p>
+</div>
+</div>
+<!-- 節點 2 -->
+<div class="relative pl-8 md:pl-12">
+<span class="absolute -left-[11px] top-1.5 w-5 h-5 rounded-full bg-templeGold-500 border-4 border-white shadow-md flex items-center justify-center"></span>
+<div class="bg-white p-5 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+<span class="inline-block text-xs font-bold px-2 py-1 bg-templeGold-100 text-templeGold-700 rounded mb-2 font-serif">10:00 AM</span>
+<h4 class="text-lg font-bold text-templeRed-800 mb-1">獻供，設壇安座</h4>
+<p class="text-gray-600 text-sm md:text-base">迎請仙佛，莊嚴神聖</p>
+</div>
+</div>
+<!-- 節點 3 -->
+<div class="relative pl-8 md:pl-12">
+<span class="absolute -left-[11px] top-1.5 w-5 h-5 rounded-full bg-templeGold-500 border-4 border-white shadow-md flex items-center justify-center"></span>
+<div class="bg-white p-5 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+<span class="inline-block text-xs font-bold px-2 py-1 bg-templeGold-100 text-templeGold-700 rounded mb-2 font-serif">11:00 AM</span>
+<h4 class="text-lg font-bold text-templeRed-800 mb-1">大合照，自助餐</h4>
+<p class="text-gray-600 text-sm md:text-base">享用平安餐，同享歡樂</p>
+</div>
+</div>
+<!-- 節點 4 -->
+<div class="relative pl-8 md:pl-12">
+<span class="absolute -left-[11px] top-1.5 w-5 h-5 rounded-full bg-templeGold-500 border-4 border-white shadow-md flex items-center justify-center"></span>
+<div class="bg-white p-5 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+<span class="inline-block text-xs font-bold px-2 py-1 bg-templeGold-100 text-templeGold-700 rounded mb-2 font-serif">11:00 AM - 03:00 PM</span>
+<h4 class="text-lg font-bold text-templeRed-800 mb-1">點亮心燈</h4>
+<p class="text-gray-600 text-sm md:text-base">開啟智慧，祈求聖凡如意</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 典禮時間與地點 Section -->
+<section class="bg-templeGold-100/50 border-y border-templeGold-500/20 py-16 px-4">
+<div class="max-w-3xl mx-auto">
+<h2 class="text-2xl md:text-3xl font-bold text-center text-templeRed-800 tracking-[0.2em] mb-12">
+📍 設壇日期與地點
+</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- 時間資訊卡片 -->
+<div class="bg-white p-8 rounded-lg shadow-sm border border-templeGold-500/20 flex flex-col items-center text-center">
+<div class="w-12 h-12 rounded-full bg-templeGold-100 text-templeGold-700 flex items-center justify-center text-xl mb-4">
+<i class="fa-regular fa-calendar-days"></i>
+</div>
+<h3 class="text-lg font-bold text-templeRed-800 mb-4 tracking-wider">📅 設壇日期</h3>
+<div class="space-y-2 text-gray-700 font-medium">
+<p class="text-base md:text-lg">國曆：2026年9月16日</p>
+<p class="text-gray-500 font-normal">（星期三）</p>
+<hr class="border-gray-100 my-2">
+<p class="text-base md:text-lg text-templeGold-700">農曆：丙午年 八月初六日</p>
+</div>
+</div>
+<!-- 地點資訊卡片 -->
+<div class="bg-white p-8 rounded-lg shadow-sm border border-templeGold-500/20 flex flex-col items-center text-center justify-between">
+<div class="flex flex-col items-center">
+<div class="w-12 h-12 rounded-full bg-templeGold-100 text-templeGold-700 flex items-center justify-center text-xl mb-4">
+<i class="fa-solid fa-location-dot"></i>
+</div>
+<h3 class="text-lg font-bold text-templeRed-800 mb-4 tracking-wider">📍 佛堂地址</h3>
+<p class="text-gray-700 leading-relaxed text-sm md:text-base px-2">
+22-2, Jalan SL 1/11, Bandar Sungai Long, 43000 Kajang, Selangor.
+</p>
+</div>
+<!-- 導航按鈕 -->
+<div class="mt-6 w-full">
+<a href="https://maps.app.goo.gl/LyhjTy5JeHxr8f5Q8?g_st=aw" target="_blank" class="shine-effect w-full py-3 px-6 bg-gradient-to-r from-templeRed-800 to-templeRed-700 hover:from-templeRed-700 hover:to-templeRed-800 text-white rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 font-bold flex items-center justify-center gap-2">
+<i class="fa-solid fa-map-location-dot"></i>
+<span>開啟 Google Maps 導航</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 預約報名 RSVP Section -->
+<section id="rsvp" class="max-w-xl mx-auto px-4 py-16">
+<div class="bg-white p-8 md:p-10 rounded-xl shadow-lg border border-templeGold-500/30">
+<h2 class="text-xl md:text-2xl font-bold text-center text-templeRed-800 tracking-wider mb-2">
+✨ 安座大典 撥冗出席登記
+</h2>
+<p class="text-xs md:text-sm text-gray-500 text-center mb-8">
+為利安排膳食與席位，請前賢選擇預計出席時段：
+</p>
+<form id="rsvpForm" class="space-y-6">
+<!-- 姓名 -->
+<div>
+<label class="block text-sm font-bold text-gray-700 mb-2">前賢姓名 / 聯絡人</label>
+<input type="text" id="rsvpName" required placeholder="請輸入您的姓名或稱呼" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-templeRed-800 focus:border-templeRed-800 outline-none transition-all">
+</div>
+<!-- 電話 -->
+<div>
+<label class="block text-sm font-bold text-gray-700 mb-2">聯絡電話</label>
+<input type="tel" id="rsvpPhone" required placeholder="例如：012-345 6789" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-templeRed-800 focus:border-templeRed-800 outline-none transition-all">
+</div>
+<!-- 預計出席時段 -->
+<div>
+<label class="block text-sm font-bold text-gray-700 mb-2">預計出席時段</label>
+<div class="grid grid-cols-1 gap-2">
+<label class="flex items-center p-3 border border-gray-200 rounded-lg cursor-pointer hover:bg-templeGold-50 transition-colors">
+<input type="radio" name="rsvpTime" value="9:30am - 11:00am (設壇安座大典)" checked class="text-templeRed-800 focus:ring-templeRed-800 h-4 w-4">
+<span class="ml-3 text-sm md:text-base text-gray-700">09:30 am - 11:00 am (安座大典)</span>
+</label>
+<label class="flex items-center p-3 border border-gray-200 rounded-lg cursor-pointer hover:bg-templeGold-50 transition-colors">
+<input type="radio" name="rsvpTime" value="11:00am - 1:00pm (大合照、自助餐)" class="text-templeRed-800 focus:ring-templeRed-800 h-4 w-4">
+<span class="ml-3 text-sm md:text-base text-gray-700">11:00 am - 01:00 pm (大合照與平安餐)</span>
+</label>
+<label class="flex items-center p-3 border border-gray-200 rounded-lg cursor-pointer hover:bg-templeGold-50 transition-colors">
+<input type="radio" name="rsvpTime" value="1:00pm - 3:00pm (點亮心燈祈福)" class="text-templeRed-800 focus:ring-templeRed-800 h-4 w-4">
+<span class="ml-3 text-sm md:text-base text-gray-700">01:00 pm - 03:00 pm (點亮心燈)</span>
+</label>
+</div>
+</div>
+<!-- 出席人數 -->
+<div>
+<label class="block text-sm font-bold text-gray-700 mb-2">同行總人數</label>
+<select id="rsvpCount" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-templeRed-800 focus:border-templeRed-800 outline-none transition-all">
+<option value="1">1 人 (本人出席)</option>
+<option value="2">2 人</option>
+<option value="3">3 人</option>
+<option value="4">4 人</option>
+<option value="5">5 人或以上</option>
+</select>
+</div>
+<!-- 選擇聯絡前賢 -->
+<div>
+<label class="block text-sm font-bold text-gray-700 mb-2">傳送報名資料給：</label>
+<select id="contactSelect" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-templeRed-800 focus:border-templeRed-800 outline-none transition-all">
+<option value="60176999738">李真 前賢 (017-699 9738)</option>
+<option value="60162059177">何秀珍 前賢 (016-205 9177)</option>
+</select>
+</div>
+<!-- 提交按鈕 -->
+<button type="button" onclick="submitRSVP()" class="shine-effect w-full py-3.5 px-6 bg-gradient-to-r from-templeRed-800 to-templeRed-700 hover:from-templeRed-700 hover:to-templeRed-800 text-white rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 font-bold flex items-center justify-center gap-2 text-base md:text-lg">
+<i class="fa-brands fa-whatsapp text-xl"></i>
+<span>確認登記並傳送 WhatsApp 報名</span>
+</button>
+<p class="text-center text-xs text-gray-400">
+* 點擊按鈕後，會引導您至 WhatsApp 發送報名訊息給聯絡前賢。
+</p>
+</form>
+</div>
+</section>
+<!-- 聯絡資訊 Section -->
+<section class="max-w-3xl mx-auto px-4 pb-16 text-center">
+<h3 class="text-lg font-bold text-templeRed-800 mb-6 tracking-widest">📞 聯絡諮詢</h3>
+<div class="flex flex-col sm:flex-row justify-center gap-6 text-base">
+<a href="tel:+60176999738" class="flex items-center justify-center gap-2 px-6 py-3 bg-white border border-gray-200 rounded-lg shadow-sm text-gray-700 hover:text-templeRed-800 transition-colors">
+<i class="fa-solid fa-phone text-templeGold-500"></i>
+<span>李真 前賢：017-699 9738</span>
+</a>
+<a href="tel:+60162059177" class="flex items-center justify-center gap-2 px-6 py-3 bg-white border border-gray-200 rounded-lg shadow-sm text-gray-700 hover:text-templeRed-800 transition-colors">
+<i class="fa-solid fa-phone text-templeGold-500"></i>
+<span>何秀珍 前賢：016-205 9177</span>
+</a>
+</div>
+</section>
+<!-- 頁尾結語 -->
+<footer class="mt-auto bg-gradient-to-b from-gray-900 to-black text-gray-400 py-12 px-4 text-center border-t-2 border-templeGold-500">
+<div class="max-w-3xl mx-auto space-y-4">
+<p class="text-templeGold-500 text-lg tracking-[0.25em] font-medium">
+—— 聖德壇全體壇主道親 鞠躬敬邀 ——
+</p>
+<p class="text-sm tracking-widest text-gray-500">
+期待前賢們慈悲蒞臨，為佛堂增添無上光彩！
+</p>
+<div class="pt-6 text-[10px] text-gray-600 space-y-1">
+<p>© 2026 聖德壇設壇安座大典籌備委員會. 保留所有權利。</p>
+<p>精心設計，莊嚴呈現。</p>
+</div>
+</div>
+</footer>
+<!-- JavaScript 邏輯：倒數計時與報名傳送 -->
+<script>
+// 1. 倒數計時器邏輯
+const ceremonyDate = new Date("2026-09-16T09:30:00").getTime();
+function updateCountdown() {
+const now = new Date().getTime();
+const distance = ceremonyDate - now;
+if (distance < 0) {
+document.getElementById("countdown").innerHTML = `
+<div class="col-span-4 bg-templeGold-500/10 text-templeGold-500 p-4 rounded-lg font-bold tracking-widest text-lg">
+✨ 設壇安座大典進行中 / 圓滿禮讚 ✨
+</div>
+`;
+return;
+}
+const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+document.getElementById("days").innerText = days.toString().padStart(2, '0');
+document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+}
+setInterval(updateCountdown, 1000);
+updateCountdown();
 
-    <!-- 頂部浮動背景音樂播放器 -->
-    <div class="fixed top-4 right-4 z-50">
-        <button id="musicBtn" class="bg-white/90 backdrop-blur-md border border-templeGold-500/50 shadow-lg text-templeGold-700 w-12 h-12 rounded-full flex items-center justify-center focus:outline-none transition-transform hover:scale-105 active:scale-95" onclick="toggleMusic()">
-            <i id="musicIcon" class="fa-solid fa-compact-disc text-xl rotating-music"></i>
-        </button>
-        <!-- 預設高品質、莊嚴肅穆的古琴佛教/道教禪修背景音樂 (Archive.org 穩定來源) -->
-        <audio id="bgMusic" loop preload="auto">
-            <source src="https://archive.org/download/classic-chinese-music-instrumental-guqin/Classic%20Chinese%20Music%20Instrumental-Guqin%20%28Ancient%20Zither%29.mp3" type="audio/mpeg">
-            您的瀏覽器不支援音訊播放。
-        </audio>
-    </div>
+// 2. 背景音樂播放控制
+const bgMusic = document.getElementById("bgMusic");
+const musicBtn = document.getElementById("musicBtn");
+const musicIcon = document.getElementById("musicIcon");
+let isPlaying = false;
+function toggleMusic() {
+if (isPlaying) {
+bgMusic.pause();
+musicIcon.classList.remove("rotating-music");
+musicIcon.classList.remove("fa-compact-disc");
+musicIcon.classList.add("fa-circle-play");
+musicIcon.classList.add("text-gray-400");
+isPlaying = false;
+} else {
+bgMusic.play().then(() => {
+musicIcon.classList.add("rotating-music");
+musicIcon.classList.remove("fa-circle-play");
+musicIcon.classList.add("fa-compact-disc");
+musicIcon.classList.remove("text-gray-400");
+isPlaying = true;
+}).catch(e => {
+console.log("播放被瀏覽器阻擋:", e);
+alert("請再次點擊播放音樂 🎵");
+});
+}
+}
 
-    <!-- 主視覺 Banner (Hero) Section -->
-    <header class="relative w-full h-[65vh] md:h-[75vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-templeRed-900 to-templeRed-800 text-white text-center px-4">
-        <!-- 背景圖裝飾 (可在下方更換為上傳的 sheng_de_temple_invitation_bg.png 網址) -->
-        <div class="absolute inset-0 opacity-25 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1609137144814-1e765ec4a02d?auto=format&fit=crop&q=80&w=1200');"></div>
+// 3. 報名資料收集、儲存至 Google 試算表並跳轉 WhatsApp
+function submitRSVP() {
+  const name = document.getElementById("rsvpName").value.trim();
+  const phone = document.getElementById("rsvpPhone").value.trim();
+  const timeSlot = document.querySelector('input[name="rsvpTime"]:checked').value;
+  const attendeesCount = document.getElementById("rsvpCount").value;
+  const targetPhone = document.getElementById("contactSelect").value;
+  
+  if (!name || !phone) {
+    alert("請填寫您的姓名與聯絡電話，以便我們登記席位。謝謝！");
+    return;
+  }
 
-        <!-- 東方典雅圖案疊加 -->
-        <div class="absolute inset-0 bg-radial-gradient from-transparent to-black/40"></div>
+  // ----------------【新增：同步傳送資料至 Google Sheet】----------------
+  // ⚠️ 請將下方的網址，替換成您剛剛在 Apps Script 部署複製的「網頁應用程式網址」
+  const googleAppScriptUrl = "https://script.google.com/macros/s/AKfycbzqWwU1BGsF3r91qDaJg6rkOaYsR6mbsM5mbNfPyWao8xJNQMXTbprgacmGTdm0mM__/exec"; 
+  
+  const formData = new FormData();
+  formData.append("name", name);
+  formData.append("phone", phone);
+  formData.append("timeSlot", timeSlot);
+  formData.append("attendees", attendeesCount);
+  formData.append("contact", targetPhone);
 
-        <!-- 主視覺文字內容 -->
-        <div class="relative z-10 max-w-2xl px-4 py-8 border-2 border-templeGold-500/30 m-2 rounded-lg bg-black/10 backdrop-blur-[1px] flex flex-col items-center">
-            <div class="text-templeGold-500 text-2xl md:text-3xl mb-3 tracking-[0.4em] font-medium animate-pulse">🙏 天恩師德</div>
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-templeGold-500 tracking-[0.25em] leading-snug drop-shadow-lg mb-4">
-                聖德壇
-            </h1>
-            <p class="text-xl md:text-2xl font-bold tracking-[0.2em] text-templeGold-100 mb-6 drop-shadow-md">
-                設壇安座大典
-            </p>
-            <div class="w-16 h-[2px] bg-templeGold-500 mb-6"></div>
-            <p class="text-sm md:text-base tracking-[0.3em] font-light text-sand-100 uppercase">
-                誠摯邀約 • 同霑法喜
-            </p>
-        </div>
+  // 在背景傳送資料
+  fetch(googleAppScriptUrl, {
+    method: "POST",
+    body: formData,
+    mode: "no-cors" // 防止跨網域安全阻擋
+  })
+  .then(() => {
+    console.log("報名資料已成功記錄至 Google Sheet！");
+  })
+  .catch(err => {
+    console.error("傳送至 Google Sheet 失敗：", err);
+  });
+  // ------------------------------------------------------------------
 
-        <!-- 往下滾動指引 -->
-        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-templeGold-500 text-xs tracking-widest flex flex-col items-center animate-bounce">
-            <span>往下探索</span>
-            <i class="fa-solid fa-chevron-down mt-2"></i>
-        </div>
-    </header>
-
-    <!-- 邀請內容與緣起 Section -->
-    <section class="max-w-3xl mx-auto px-4 py-16 text-center">
-        <div class="temple-border-box bg-templeGold-50 p-8 md:p-12 rounded-lg shadow-md border-templeGold-500/30">
-            <div class="text-templeGold-700 text-lg mb-6 flex justify-center items-center gap-2">
-                <span class="h-[1px] w-8 bg-templeGold-500"></span>
-                <span>誠摯邀約</span>
-                <span class="h-[1px] w-8 bg-templeGold-500"></span>
-            </div>
-
-            <p class="text-lg md:text-xl font-bold text-templeRed-800 tracking-wider mb-8">
-                各位前賢大德，大家好：
-            </p>
-
-            <div class="space-y-6 text-gray-700 leading-relaxed tracking-wide text-base md:text-lg">
-                <p>感謝 <strong class="text-templeRed-800 font-bold">天恩師德浩瀚</strong>！</p>
-                <p>
-                    感謝 <strong>老祖師宏慈悲愿</strong>，<strong>師尊師母聖德無疆</strong>；<br>
-                    感恩 <strong>白水聖帝、不休息菩薩聖靈護佑</strong>。
-                </p>
-                <p>
-                    在點傳師慈悲提携，以及各位壇主、講師的鼓勵成全下，我們的「<strong class="text-templeRed-800 font-bold">聖德壇</strong>」即將正式設壇安座！
-                </p>
-                <p>
-                    這是一場天人共慶的殊勝盛會。聖德壇全體壇主與道親，懷著無比感恩與法喜的心，誠摯地邀請各位前賢大德、親朋好友撥冗蒞臨，共襄盛舉，同霑法喜。
-                </p>
-                <p class="text-templeRed-800 font-medium">
-                    讓我們齊聚一堂，共同見證這莊嚴美好的時刻，凝聚善念，廣結善緣！
-                </p>
-            </div>
-
-            <div class="mt-8 flex justify-center">
-                <i class="fa-solid fa-seedling text-templeGold-600 text-2xl"></i>
-            </div>
-        </div>
-    </section>
-
-    <!-- 倒數計時 Section -->
-    <section class="bg-gradient-to-r from-templeRed-900 to-templeRed-800 text-white py-12 px-4 shadow-inner">
-        <div class="max-w-3xl mx-auto text-center">
-            <h3 class="text-templeGold-500 font-bold tracking-[0.2em] text-lg mb-6">—— 距離安座莊嚴大典還有 ——</h3>
-            <div class="grid grid-cols-4 gap-2 md:gap-4 max-w-md mx-auto" id="countdown">
-                <div class="bg-black/20 backdrop-blur-sm p-3 md:p-4 rounded-lg border border-templeGold-500/20">
-                    <span id="days" class="block text-2xl md:text-4xl font-bold text-templeGold-500">00</span>
-                    <span class="text-xs tracking-wider text-sand-200 mt-1 block">天</span>
-                </div>
-                <div class="bg-black/20 backdrop-blur-sm p-3 md:p-4 rounded-lg border border-templeGold-500/20">
-                    <span id="hours" class="block text-2xl md:text-4xl font-bold text-templeGold-500">00</span>
-                    <span class="text-xs tracking-wider text-sand-200 mt-1 block">時</span>
-                </div>
-                <div class="bg-black/20 backdrop-blur-sm p-3 md:p-4 rounded-lg border border-templeGold-500/20">
-                    <span id="minutes" class="block text-2xl md:text-4xl font-bold text-templeGold-500">00</span>
-                    <span class="text-xs tracking-wider text-sand-200 mt-1 block">分</span>
-                </div>
-                <div class="bg-black/20 backdrop-blur-sm p-3 md:p-4 rounded-lg border border-templeGold-500/20">
-                    <span id="seconds" class="block text-2xl md:text-4xl font-bold text-templeGold-500">00</span>
-                    <span class="text-xs tracking-wider text-sand-200 mt-1 block">秒</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 殊勝流程表 Section -->
-    <section id="program" class="max-w-3xl mx-auto px-4 py-16">
-        <h2 class="text-2xl md:text-3xl font-bold text-center text-templeRed-800 tracking-[0.2em] mb-12 flex justify-center items-center gap-3">
-            <i class="fa-solid fa-sparkles text-templeGold-500 text-xl"></i>
-            <span>殊勝流程表</span>
-            <i class="fa-solid fa-sparkles text-templeGold-500 text-xl"></i>
-        </h2>
-
-        <div class="relative border-l-2 border-templeGold-500/40 ml-4 md:ml-12 space-y-10 py-2">
-            <!-- 節點 1 -->
-            <div class="relative pl-8 md:pl-12">
-                <span class="absolute -left-[11px] top-1.5 w-5 h-5 rounded-full bg-templeGold-500 border-4 border-white shadow-md flex items-center justify-center"></span>
-                <div class="bg-white p-5 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-                    <span class="inline-block text-xs font-bold px-2 py-1 bg-templeGold-100 text-templeGold-700 rounded mb-2 font-serif">09:30 AM</span>
-                    <h4 class="text-lg font-bold text-templeRed-800 mb-1">前賢入席</h4>
-                    <p class="text-gray-600 text-sm md:text-base">溫馨相聚，沉澱身心</p>
-                </div>
-            </div>
-
-            <!-- 節點 2 -->
-            <div class="relative pl-8 md:pl-12">
-                <span class="absolute -left-[11px] top-1.5 w-5 h-5 rounded-full bg-templeGold-500 border-4 border-white shadow-md flex items-center justify-center"></span>
-                <div class="bg-white p-5 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-                    <span class="inline-block text-xs font-bold px-2 py-1 bg-templeGold-100 text-templeGold-700 rounded mb-2 font-serif">10:00 AM</span>
-                    <h4 class="text-lg font-bold text-templeRed-800 mb-1">獻供，設壇安座</h4>
-                    <p class="text-gray-600 text-sm md:text-base">迎請仙佛，莊嚴神聖</p>
-                </div>
-            </div>
-
-            <!-- 節點 3 -->
-            <div class="relative pl-8 md:pl-12">
-                <span class="absolute -left-[11px] top-1.5 w-5 h-5 rounded-full bg-templeGold-500 border-4 border-white shadow-md flex items-center justify-center"></span>
-                <div class="bg-white p-5 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-                    <span class="inline-block text-xs font-bold px-2 py-1 bg-templeGold-100 text-templeGold-700 rounded mb-2 font-serif">11:00 AM</span>
-                    <h4 class="text-lg font-bold text-templeRed-800 mb-1">大合照，自助餐</h4>
-                    <p class="text-gray-600 text-sm md:text-base">享用平安餐，同享歡樂</p>
-                </div>
-            </div>
-
-            <!-- 節點 4 -->
-            <div class="relative pl-8 md:pl-12">
-                <span class="absolute -left-[11px] top-1.5 w-5 h-5 rounded-full bg-templeGold-500 border-4 border-white shadow-md flex items-center justify-center"></span>
-                <div class="bg-white p-5 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-                    <span class="inline-block text-xs font-bold px-2 py-1 bg-templeGold-100 text-templeGold-700 rounded mb-2 font-serif">11:00 AM - 03:00 PM</span>
-                    <h4 class="text-lg font-bold text-templeRed-800 mb-1">點亮心燈</h4>
-                    <p class="text-gray-600 text-sm md:text-base">開啟智慧，祈求聖凡如意</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 典禮時間與地點 Section -->
-    <section class="bg-templeGold-100/50 border-y border-templeGold-500/20 py-16 px-4">
-        <div class="max-w-3xl mx-auto">
-            <h2 class="text-2xl md:text-3xl font-bold text-center text-templeRed-800 tracking-[0.2em] mb-12">
-                📍 設壇日期與地點
-            </h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- 時間資訊卡片 -->
-                <div class="bg-white p-8 rounded-lg shadow-sm border border-templeGold-500/20 flex flex-col items-center text-center">
-                    <div class="w-12 h-12 rounded-full bg-templeGold-100 text-templeGold-700 flex items-center justify-center text-xl mb-4">
-                        <i class="fa-regular fa-calendar-days"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-templeRed-800 mb-4 tracking-wider">📅 設壇日期</h3>
-                    <div class="space-y-2 text-gray-700 font-medium">
-                        <p class="text-base md:text-lg">國曆：2026年9月16日</p>
-                        <p class="text-gray-500 font-normal">（星期三）</p>
-                        <hr class="border-gray-100 my-2">
-                        <p class="text-base md:text-lg text-templeGold-700">農曆：丙午年 八月初六日</p>
-                    </div>
-                </div>
-
-                <!-- 地點資訊卡片 -->
-                <div class="bg-white p-8 rounded-lg shadow-sm border border-templeGold-500/20 flex flex-col items-center text-center justify-between">
-                    <div class="flex flex-col items-center">
-                        <div class="w-12 h-12 rounded-full bg-templeGold-100 text-templeGold-700 flex items-center justify-center text-xl mb-4">
-                            <i class="fa-solid fa-location-dot"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-templeRed-800 mb-4 tracking-wider">📍 佛堂地址</h3>
-                        <p class="text-gray-700 leading-relaxed text-sm md:text-base px-2">
-                            22-2, Jalan SL 1/11, Bandar Sungai Long, 43000 Kajang, Selangor.
-                        </p>
-                    </div>
-
-                    <!-- 導航按鈕 -->
-                    <div class="mt-6 w-full">
-                        <a href="https://maps.app.goo.gl/LyhjTy5JeHxr8f5Q8?g_st=aw" target="_blank" class="shine-effect w-full py-3 px-6 bg-gradient-to-r from-templeRed-800 to-templeRed-700 hover:from-templeRed-700 hover:to-templeRed-800 text-white rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 font-bold flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-map-location-dot"></i>
-                            <span>開啟 Google Maps 導航</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 預約報名 RSVP Section (點擊後拉起 WhatsApp) -->
-    <section id="rsvp" class="max-w-xl mx-auto px-4 py-16">
-        <div class="bg-white p-8 md:p-10 rounded-xl shadow-lg border border-templeGold-500/30">
-            <h2 class="text-xl md:text-2xl font-bold text-center text-templeRed-800 tracking-wider mb-2">
-                ✨ 安座大典 撥冗出席登記
-            </h2>
-            <p class="text-xs md:text-sm text-gray-500 text-center mb-8">
-                為利安排膳食與席位，請前賢選擇預計出席時段：
-            </p>
-
-            <form id="rsvpForm" class="space-y-6">
-                <!-- 姓名 -->
-                <div>
-                    <label class="block text-sm font-bold text-gray-700 mb-2">前賢姓名 / 聯絡人</label>
-                    <input type="text" id="rsvpName" required placeholder="請輸入您的姓名或稱呼" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-templeRed-800 focus:border-templeRed-800 outline-none transition-all">
-                </div>
-
-                <!-- 電話 -->
-                <div>
-                    <label class="block text-sm font-bold text-gray-700 mb-2">聯絡電話</label>
-                    <input type="tel" id="rsvpPhone" required placeholder="例如：012-345 6789" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-templeRed-800 focus:border-templeRed-800 outline-none transition-all">
-                </div>
-
-                <!-- 預計出席時段 -->
-                <div>
-                    <label class="block text-sm font-bold text-gray-700 mb-2">預計出席時段</label>
-                    <div class="grid grid-cols-1 gap-2">
-                        <label class="flex items-center p-3 border border-gray-200 rounded-lg cursor-pointer hover:bg-templeGold-50 transition-colors">
-                            <input type="radio" name="rsvpTime" value="9:30am - 11:00am (設壇安座大典)" checked class="text-templeRed-800 focus:ring-templeRed-800 h-4 w-4">
-                            <span class="ml-3 text-sm md:text-base text-gray-700">09:30 am - 11:00 am (安座大典)</span>
-                        </label>
-                        <label class="flex items-center p-3 border border-gray-200 rounded-lg cursor-pointer hover:bg-templeGold-50 transition-colors">
-                            <input type="radio" name="rsvpTime" value="11:00am - 1:00pm (大合照、自助餐)" class="text-templeRed-800 focus:ring-templeRed-800 h-4 w-4">
-                            <span class="ml-3 text-sm md:text-base text-gray-700">11:00 am - 01:00 pm (大合照與平安餐)</span>
-                        </label>
-                        <label class="flex items-center p-3 border border-gray-200 rounded-lg cursor-pointer hover:bg-templeGold-50 transition-colors">
-                            <input type="radio" name="rsvpTime" value="1:00pm - 3:00pm (點亮心燈祈福)" class="text-templeRed-800 focus:ring-templeRed-800 h-4 w-4">
-                            <span class="ml-3 text-sm md:text-base text-gray-700">01:00 pm - 03:00 pm (點亮心燈)</span>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- 出席人數 -->
-                <div>
-                    <label class="block text-sm font-bold text-gray-700 mb-2">同行總人數</label>
-                    <select id="rsvpCount" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-templeRed-800 focus:border-templeRed-800 outline-none transition-all">
-                        <option value="1">1 人 (本人出席)</option>
-                        <option value="2">2 人</option>
-                        <option value="3">3 人</option>
-                        <option value="4">4 人</option>
-                        <option value="5">5 人或以上</option>
-                    </select>
-                </div>
-
-                <!-- 選擇聯絡前賢 -->
-                <div>
-                    <label class="block text-sm font-bold text-gray-700 mb-2">傳送報名資料給：</label>
-                    <select id="contactSelect" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-templeRed-800 focus:border-templeRed-800 outline-none transition-all">
-                        <option value="60176999738">李真 前賢 (017-699 9738)</option>
-                        <option value="60162059177">何秀珍 前賢 (016-205 9177)</option>
-                    </select>
-                </div>
-
-                <!-- 提交按鈕 -->
-                <button type="button" onclick="submitRSVP()" class="shine-effect w-full py-3.5 px-6 bg-gradient-to-r from-templeRed-800 to-templeRed-700 hover:from-templeRed-700 hover:to-templeRed-800 text-white rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 font-bold flex items-center justify-center gap-2 text-base md:text-lg">
-                    <i class="fa-brands fa-whatsapp text-xl"></i>
-                    <span>確認登記並傳送 WhatsApp 報名</span>
-                </button>
-                <p class="text-center text-xs text-gray-400">
-                    * 點擊按鈕後，會引導您至 WhatsApp 發送報名訊息給聯絡前賢。
-                </p>
-            </form>
-        </div>
-    </section>
-
-    <!-- 聯絡資訊 Section -->
-    <section class="max-w-3xl mx-auto px-4 pb-16 text-center">
-        <h3 class="text-lg font-bold text-templeRed-800 mb-6 tracking-widest">📞 聯絡諮詢</h3>
-        <div class="flex flex-col sm:flex-row justify-center gap-6 text-base">
-            <a href="tel:+60176999738" class="flex items-center justify-center gap-2 px-6 py-3 bg-white border border-gray-200 rounded-lg shadow-sm text-gray-700 hover:text-templeRed-800 transition-colors">
-                <i class="fa-solid fa-phone text-templeGold-500"></i>
-                <span>李真 前賢：017-699 9738</span>
-            </a>
-            <a href="tel:+60162059177" class="flex items-center justify-center gap-2 px-6 py-3 bg-white border border-gray-200 rounded-lg shadow-sm text-gray-700 hover:text-templeRed-800 transition-colors">
-                <i class="fa-solid fa-phone text-templeGold-500"></i>
-                <span>何秀珍 前賢：016-205 9177</span>
-            </a>
-        </div>
-    </section>
-
-    <!-- 頁尾結語 -->
-    <footer class="mt-auto bg-gradient-to-b from-gray-900 to-black text-gray-400 py-12 px-4 text-center border-t-2 border-templeGold-500">
-        <div class="max-w-3xl mx-auto space-y-4">
-            <p class="text-templeGold-500 text-lg tracking-[0.25em] font-medium">
-                —— 聖德壇全體壇主道親 鞠躬敬邀 ——
-            </p>
-            <p class="text-sm tracking-widest text-gray-500">
-                期待前賢們慈悲蒞臨，為佛堂增添無上光彩！
-            </p>
-            <div class="pt-6 text-[10px] text-gray-600 space-y-1">
-                <p>© 2026 聖德壇設壇安座大典籌備委員會. 保留所有權利。</p>
-                <p>精心設計，莊嚴呈現。</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- JavaScript 邏輯：倒數計時與報名傳送 -->
-    <script>
-        // 1. 倒數計時器邏輯
-        const ceremonyDate = new Date("2026-09-16T09:30:00").getTime();
-
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = ceremonyDate - now;
-
-            if (distance < 0) {
-                document.getElementById("countdown").innerHTML = `
-                    <div class="col-span-4 bg-templeGold-500/10 text-templeGold-500 p-4 rounded-lg font-bold tracking-widest text-lg">
-                        ✨ 設壇安座大典進行中 / 圓滿禮讚 ✨
-                    </div>
-                `;
-                return;
-            }
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById("days").innerText = days.toString().padStart(2, '0');
-            document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
-            document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
-            document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
-        }
-
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
-
-        // 2. 背景音樂播放控制
-        const bgMusic = document.getElementById("bgMusic");
-        const musicBtn = document.getElementById("musicBtn");
-        const musicIcon = document.getElementById("musicIcon");
-        let isPlaying = false;
-
-        function toggleMusic() {
-            if (isPlaying) {
-                bgMusic.pause();
-                musicIcon.classList.remove("rotating-music");
-                musicIcon.classList.remove("fa-compact-disc");
-                musicIcon.classList.add("fa-circle-play");
-                musicIcon.classList.add("text-gray-400");
-                isPlaying = false;
-            } else {
-                // 部分行動裝置會因為安全限制需要使用者第一次互動才能撥放音樂
-                bgMusic.play().then(() => {
-                    musicIcon.classList.add("rotating-music");
-                    musicIcon.classList.remove("fa-circle-play");
-                    musicIcon.classList.add("fa-compact-disc");
-                    musicIcon.classList.remove("text-gray-400");
-                    isPlaying = true;
-                }).catch(e => {
-                    console.log("播放被瀏覽器阻擋:", e);
-                    alert("請再次點擊播放音樂 🎵");
-                });
-            }
-        }
-
-        // 網頁載入時若被瀏覽器阻擋則提示點擊
-        window.addEventListener('click', () => {
-            if(!isPlaying) {
-                // 可自行決定是否啟用自動播放
-            }
-        }, {once: true});
-
-        // 3. 報名資料收集並跳轉 WhatsApp (馬來西亞地區 +60 開頭)
-        function submitRSVP() {
-            const name = document.getElementById("rsvpName").value.trim();
-            const phone = document.getElementById("rsvpPhone").value.trim();
-            const timeSlot = document.querySelector('input[name="rsvpTime"]:checked').value;
-            const attendeesCount = document.getElementById("rsvpCount").value;
-            const targetPhone = document.getElementById("contactSelect").value;
-
-            if (!name || !phone) {
-                alert("請填寫您的姓名與聯絡電話，以便我們登記席位。謝謝！");
-                return;
-            }
-
-            // 建立格式化訊息
-            const message = `【聖德壇設壇安座大典 報名確認】🙏\n` +
-                            `各位前賢大德您好，我已透過電子邀請函登記出席：\n\n` +
-                            `🔸 前賢姓名：${name}\n` +
-                            `🔸 聯絡電話：${phone}\n` +
-                            `🔸 預計出席時段：\n    ${timeSlot}\n` +
-                            `🔸 出席人數：${attendeesCount} 位\n\n` +
-                            `期待當天共襄盛舉，同霑法喜！感恩天恩師德。`;
-
-            // 編碼成網址參數
-            const encodedMessage = encodeURIComponent(message);
-
-            // 跳轉 WhatsApp 聯絡人
-            const waUrl = `https://api.whatsapp.com/send?phone=${targetPhone}&text=${encodedMessage}`;
-            window.open(waUrl, '_blank');
-        }
-    </script>
+  // 建立格式化訊息
+  const message = `【聖德壇設壇安座大典 報名確認】🙏\n` +
+  `各位前賢大德您好，我已透過電子邀請函登記出席：\n\n` +
+  `🔸 前賢姓名：${name}\n` +
+  `🔸 聯絡電話：${phone}\n` +
+  `🔸 預計出席時段：\n    ${timeSlot}\n` +
+  `🔸 出席人數：${attendeesCount} 位\n\n` +
+  `期待當天共襄盛舉，同霑法喜！感恩天恩師德。`;
+  
+  // 編碼成網址參數
+  const encodedMessage = encodeURIComponent(message);
+  // 跳轉 WhatsApp 聯絡人
+  const waUrl = `https://api.whatsapp.com/send?phone=${targetPhone}&text=${encodedMessage}`;
+  window.open(waUrl, '_blank');
+}
+</script>
 </body>
 </html>
+
