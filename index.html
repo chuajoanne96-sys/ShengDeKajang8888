@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
@@ -15,8 +14,8 @@
 
 <!-- Tailwind CSS -->
 <script src="https://cdn.tailwindcss.com"></script>
-<!-- Google Fonts 莊嚴優雅的宋體/明體 -->
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<!-- Google Fonts 莊嚴優雅的宋體/明體 ＋ 瀟灑藝術的毛筆行書體 (Zhi Mang Xing) -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght=400;500;700;900&family=Zhi+Mang+Xing&display=swap" rel="stylesheet">
 <!-- FontAwesome 圖標 -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -46,6 +45,7 @@ bronze: {
 },
 fontFamily: {
 serif: ['Noto Serif TC', 'serif'],
+brush: ['Zhi Mang Xing', 'cursive'], // 毛筆書法字體
 }
 }
 }
@@ -120,7 +120,7 @@ bottom: -10px;
 right: 20px;
 }
 
-/* 【新增】極具層次感與儀式感的網頁載入緩緩上升動畫 */
+/* 網頁載入緩緩上升動畫 */
 @keyframes gentleslideUp {
   0% {
     opacity: 0;
@@ -151,15 +151,17 @@ right: 20px;
 </audio>
 </div>
 
-<!-- 2. 主視覺 Banner Section (已套用緩緩向上滑動載入動畫) -->
+<!-- 2. 主視覺 Banner Section (套用大氣、灑脫的 font-brush 毛筆書法字) -->
 <header class="relative w-full h-[60vh] md:h-[70vh] flex items-center justify-center overflow-hidden text-center px-4 fade-in-slide-up">
 <div class="absolute inset-0 bg-white/20"></div>
 <div class="relative z-10 max-w-xl px-6 py-10 border border-templeGold-500/20 rounded-2xl bg-white/70 backdrop-blur-md flex flex-col items-center shadow-lg">
-<div class="text-templeGold-700 text-xl mb-3 tracking-[0.4em] font-medium">🙏 天恩師德</div>
-<h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-templeRed-800 tracking-[0.25em] leading-snug mb-3">
+<div class="text-templeGold-700 text-xl mb-2 tracking-[0.4em] font-medium">🙏 天恩師德</div>
+<!-- 「聖德壇」更換成書法字體，並調整大小與字距 -->
+<h1 class="text-6xl md:text-7xl lg:text-8xl font-normal font-brush text-templeRed-800 tracking-[0.1em] leading-snug mb-3">
 聖德壇
 </h1>
-<p class="text-lg md:text-xl font-bold tracking-[0.2em] text-bronze-800 mb-6">
+<!-- 「設壇安座大典」亦更換成書法字體，呈現一致的藝術美感 -->
+<p class="text-2xl md:text-3xl lg:text-4xl font-normal font-brush text-bronze-800 tracking-[0.15em] mb-6">
 設壇安座大典
 </p>
 <div class="w-12 h-[1px] bg-templeGold-500 mb-6"></div>
@@ -169,7 +171,7 @@ right: 20px;
 </div>
 </header>
 
-<!-- 3. 邀請內容與緣起 Section (已套用優雅向上的微風滑動) -->
+<!-- 3. 邀請內容與緣起 Section -->
 <section class="max-w-3xl mx-auto px-4 py-12 text-center fade-in-slide-up" style="animation-delay: 200ms;">
 <div class="temple-border-box p-8 md:p-14 rounded-2xl shadow-xl">
 <div class="text-templeGold-700 text-sm mb-6 flex justify-center items-center gap-2">
@@ -183,7 +185,7 @@ right: 20px;
 <div class="space-y-6 text-bronze-800 leading-relaxed tracking-widest text-base md:text-lg">
 <p>怀着感恩与喜悦的心情，和大家分享一个特别的好消息！</p>
 <p>
-经过一段时间的筹备，我们即将迎来一个温馨的新空间 <strong>「聖德壇」</strong> 正式启用。；<br>
+经过一段时间的筹备，我们即将迎来一个温馨的新空間 <strong>「聖德壇」</strong> 正式啟用。；<br>
 这是一个充满祝福与感恩的时刻，也是一份值得珍惜的喜悦。
 </p>
 <p>
@@ -195,7 +197,7 @@ right: 20px;
 <p class="text-templeRed-800 font-semibold">
 🌸 诚挚邀请您与家人朋友一同前来，一起见证这份美好，共聚一堂，分享喜悦，结一份美好的缘分。
 </p>
-<p>期待与您相聚！祝福大家平安、顺心、喜乐！</p> 
+<p>期待与您相聚！祝福大家平安、顺心、喜乐！</p>
 </div>
 <div class="mt-8 flex justify-center">
 <i class="fa-solid fa-peace text-templeGold-600 text-xl animate-pulse"></i>
@@ -330,7 +332,7 @@ right: 20px;
 <form id="rsvpForm" class="space-y-6">
 <!-- 姓名 -->
 <div>
-<label class="block text-sm font-bold text-bronze-800 mb-2">姓名 </label>
+<label class="block text-sm font-bold text-bronze-800 mb-2">姓名</label>
 <input type="text" id="rsvpName" required placeholder="請輸入您的姓名或稱呼" class="w-full px-4 py-2.5 bg-white/70 border border-gray-300 rounded-xl focus:ring-1 focus:ring-templeGold-500 focus:border-templeGold-500 outline-none transition-all placeholder-gray-400 text-sm">
 </div>
 <!-- 電話 -->
@@ -344,20 +346,20 @@ right: 20px;
 <div class="grid grid-cols-1 gap-2">
 <label class="flex items-center p-3 bg-white/60 border border-gray-200 rounded-xl cursor-pointer hover:bg-templeGold-50 transition-colors">
 <input type="radio" name="rsvpTime" value="9:30am - 11:00am (設壇安座大典)" checked class="text-templeGold-600 focus:ring-templeGold-500 h-4 w-4">
-<span class="ml-3 text-sm text-gray-700">09:30 am - 11:00 am </span>
+<span class="ml-3 text-sm text-gray-700">09:30 am - 11:00 am</span>
 </label>
 <label class="flex items-center p-3 bg-white/60 border border-gray-200 rounded-xl cursor-pointer hover:bg-templeGold-50 transition-colors">
 <input type="radio" name="rsvpTime" value="11:00am - 1:00pm (大合照、自助餐)" class="text-templeGold-600 focus:ring-templeGold-500 h-4 w-4">
-<span class="ml-3 text-sm text-gray-700">11:00 am - 01:00 pm </span>
+<span class="ml-3 text-sm text-gray-700">11:00 am - 01:00 pm</span>
 </label>
 <label class="flex items-center p-3 bg-white/60 border border-gray-200 rounded-xl cursor-pointer hover:bg-templeGold-50 transition-colors">
 <input type="radio" name="rsvpTime" value="1:00pm - 3:00pm (點亮心燈祈福)" class="text-templeGold-600 focus:ring-templeGold-500 h-4 w-4">
-<span class="ml-3 text-sm text-gray-700">01:00 pm - 03:00 pm </span>
+<span class="ml-3 text-sm text-gray-700">01:00 pm - 03:00 pm</span>
 </label>
 </div>
 </div>
 
-<!-- 【全新升級】同行人數（分開大人與小孩，極簡 +/- 按鈕交互） -->
+<!-- 同行出席人數 -->
 <div>
 <label class="block text-sm font-bold text-bronze-800 mb-2">同行出席人數</label>
 <div class="grid grid-cols-2 gap-4">
@@ -425,7 +427,7 @@ right: 20px;
 </div>
 </footer>
 
-<!-- 10. 高質感登記成功彈窗 (已修正 z- 層級) -->
+<!-- 10. 高質感登記成功彈窗 -->
 <div id="successModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-md px-4">
   <div class="bg-white/95 border border-templeGold-500/20 p-8 max-w-sm w-full rounded-2xl shadow-2xl text-center space-y-5">
     <div class="w-16 h-16 bg-templeGold-100 text-templeGold-700 rounded-full flex items-center justify-center text-3xl mx-auto animate-bounce">
@@ -443,7 +445,7 @@ right: 20px;
   </div>
 </div>
 
-<!-- JavaScript 邏輯：倒數計時、人數計算與報名傳送 -->
+<!-- JavaScript 邏輯 -->
 <script>
 // 1. 倒數計時器邏輯
 const ceremonyDate = new Date("2026-09-16T09:30:00").getTime();
@@ -476,18 +478,46 @@ const musicBtn = document.getElementById("musicBtn");
 const musicIcon = document.getElementById("musicIcon");
 let isPlaying = false;
 
-// 輕觸螢幕任意地方即自動播放音樂（突破瀏覽器自動播放限制）
-document.addEventListener('click', function() {
-  if (!isPlaying) {
-    playMusic();
-  }
-}, { once: true });
+// 當網頁載入完成後執行的動畫與播音逻辑
+window.addEventListener('DOMContentLoaded', () => {
+  // 嘗試啟動音樂（即使被瀏覽器安全阻擋，下方偵聽器也會進行保障補償）
+  playMusic();
 
-document.addEventListener('touchstart', function() {
-  if (!isPlaying) {
-    playMusic();
-  }
-}, { once: true });
+  // 【全新功能：登入後自動慢慢向上移動】
+  // 網頁載入 1.2 秒後，網頁會自動、緩緩地向下捲動 320 像素（讓底下的內容與大師毛筆字優雅地上移浮現）
+  setTimeout(() => {
+    const totalScrollHeight = 320; 
+    let scrolledDistance = 0;
+    const speedStep = 1.2; // 每一步移動的像素值（越小越慢、越優雅）
+    
+    const scrollAnimation = setInterval(() => {
+      if (scrolledDistance < totalScrollHeight) {
+        window.scrollBy(0, speedStep);
+        scrolledDistance += speedStep;
+      } else {
+        clearInterval(scrollAnimation);
+      }
+    }, 15); // 每 15 毫秒移動一次，非常絲滑流暢
+
+    // 貼心交互：如果前賢在自動滑動期間，自己手動滾動了螢幕或觸摸了螢幕，就立刻停止自動滾動，把滑動權交還給前賢
+    const cancelAutoScroll = () => {
+      clearInterval(scrollAnimation);
+    };
+    window.addEventListener('wheel', cancelAutoScroll, { once: true });
+    window.addEventListener('touchmove', cancelAutoScroll, { once: true });
+    window.addEventListener('mousedown', cancelAutoScroll, { once: true });
+  }, 1200);
+});
+
+// 智慧解鎖音樂：只要前賢對螢幕進行任何滑動、點擊、觸碰，立刻無縫開始播卡農鋼琴曲
+const userInteractions = ['click', 'touchstart', 'scroll', 'wheel', 'touchmove'];
+userInteractions.forEach(event => {
+  document.addEventListener(event, () => {
+    if (!isPlaying) {
+      playMusic();
+    }
+  }, { once: true });
+});
 
 function playMusic() {
   bgMusic.play().then(() => {
@@ -497,34 +527,34 @@ function playMusic() {
     musicIcon.classList.remove("text-gray-400");
     isPlaying = true;
   }).catch(e => {
-    console.log("自動播放被安全政策阻擋，等待手動點擊:", e);
+    console.log("自動播放被安全政策暫時阻擋，等待用戶觸碰螢幕即自動解鎖播放：", e);
   });
 }
 
 // 右上角手動音樂按鈕切換
 function toggleMusic() {
-  if (isPlaying) {
-    bgMusic.pause();
-    musicIcon.classList.remove("rotating-music");
-    musicIcon.classList.remove("fa-compact-disc");
-    musicIcon.classList.add("fa-circle-play");
-    musicIcon.classList.add("text-gray-400");
-    isPlaying = false;
-  } else {
-    playMusic();
-  }
+if (isPlaying) {
+bgMusic.pause();
+musicIcon.classList.remove("rotating-music");
+musicIcon.classList.remove("fa-compact-disc");
+musicIcon.classList.add("fa-circle-play");
+musicIcon.classList.add("text-gray-400");
+isPlaying = false;
+} else {
+playMusic();
+}
 }
 
-// 3. 【新功能】大人與小孩 + / - 按鈕點擊交互邏輯
-let adults = 1; // 預設 1 個大人
-let children = 0; // 預設 0 個小孩
+// 3. 大人與小孩人數加減控制
+let adults = 1; 
+let children = 0; 
 
 function changeCount(type, delta) {
   if (type === 'adults') {
-    adults = Math.max(1, adults + delta); // 大人最少 1 人
+    adults = Math.max(1, adults + delta); 
     document.getElementById("adultsCount").innerText = adults;
   } else if (type === 'children') {
-    children = Math.max(0, children + delta); // 小孩最少 0 人
+    children = Math.max(0, children + delta); 
     document.getElementById("childrenCount").innerText = children;
   }
 }
@@ -541,17 +571,17 @@ function submitRSVP() {
   }
 
   // ----------------【同步傳送資料至 Google Sheet】----------------
-  // ⚠️ 請在此處填入您在 Apps Script 產生的最新「網頁應用程式網址」！
+  // ⚠️ 這裡已為您直接帶入 index2.docx 中儲存的 Google Apps Script 後台網址！
   const googleAppScriptUrl = "https://script.google.com/macros/s/AKfycbzIrfoFz5TGrvM8l-ePcqVWUQ6Yfy-Eorjsvo8yQL_-KMXsSKmwY3fhP2nNHn4dvGx2/exec"; 
   
   const formData = new FormData();
   formData.append("name", name);
   formData.append("phone", phone);
   formData.append("timeSlot", timeSlot);
-  formData.append("adults", adults);   // 傳送大人人數
-  formData.append("children", children); // 傳送小孩人數
+  formData.append("adults", adults);   
+  formData.append("children", children); 
 
-  // 背景傳送資料至 Google Sheet
+  // 背景傳送資料
   fetch(googleAppScriptUrl, {
     method: "POST",
     body: formData,
@@ -563,12 +593,11 @@ function submitRSVP() {
   })
   .catch(err => {
     console.error("傳送至 Google Sheet 失敗：", err);
-    // 即便可能出錯，也顯示精美回執彈窗保障體驗
     showSuccessModal();
   });
 }
 
-// 控制彈窗顯示與隱藏
+// 彈窗控制
 function showSuccessModal() {
   const modal = document.getElementById("successModal");
   modal.style.display = "flex";
@@ -577,9 +606,8 @@ function showSuccessModal() {
 function closeSuccessModal() {
   const modal = document.getElementById("successModal");
   modal.style.display = "none";
-  // 重置表單
+  // 重置表單與人數
   document.getElementById("rsvpForm").reset();
-  // 重置人數
   adults = 1;
   children = 0;
   document.getElementById("adultsCount").innerText = 1;
