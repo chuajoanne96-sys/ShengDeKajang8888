@@ -77,12 +77,15 @@
       background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
       animation: shine 5s infinite linear;
     }
-    @keyframes rotateMusic {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+    @keyframes ringBell {
+      0% { transform: rotate(0deg); }
+      25% { transform: rotate(15deg); }
+      50% { transform: rotate(-15deg); }
+      75% { transform: rotate(10deg); }
+      100% { transform: rotate(0deg); }
     }
-    .rotating-music {
-      animation: rotateMusic 10s infinite linear;
+    .ringing {
+      animation: ringBell 0.5s ease-in-out 3;
     }
     .temple-border-box {
       position: relative;
@@ -111,10 +114,10 @@
 </head>
 <body class="text-bronze-800 antialiased flex flex-col min-h-screen overflow-x-hidden">
 
-  <!-- 音樂播放器 -->
+  <!-- 音樂播放器 - 鈴鐺圖示 -->
   <div class="fixed top-4 right-4 z-50">
-    <button id="musicBtn" class="bg-white/90 backdrop-blur-md border border-templeGold-500/30 shadow-md text-templeGold-700 w-11 h-11 rounded-full flex items-center justify-center focus:outline-none transition-transform hover:scale-105 active:scale-95" onclick="toggleMusic()">
-      <i id="musicIcon" class="fa-solid fa-circle-play text-lg text-gray-400"></i>
+    <button id="musicBtn" class="bg-white/90 backdrop-blur-md border border-templeGold-500/30 shadow-md text-templeGold-700 w-12 h-12 rounded-full flex items-center justify-center focus:outline-none transition-transform hover:scale-105 active:scale-95 text-xl" onclick="toggleMusic()">
+      <i id="musicIcon" class="fa-solid fa-bell"></i>
     </button>
     <audio id="bgMusic" loop preload="auto">
       <source src="canon.mp3" type="audio/mpeg">
@@ -126,22 +129,22 @@
   <header class="relative w-full h-[60vh] md:h-[70vh] flex items-center justify-center overflow-hidden text-center px-4">
     <div class="absolute inset-0 bg-white/20"></div>
     <div class="relative z-10 max-w-xl px-6 py-12 border border-templeGold-500/20 rounded-2xl bg-white/70 backdrop-blur-md flex flex-col items-center shadow-lg">
-      <h1 class="text-5xl md:text-6xl lg:text-7xl font-normal font-brush text-templeRed-800 tracking-[0.1em] leading-snug mb-3">聖德壇</h1>
-      <p class="text-2xl md:text-3xl lg:text-4xl font-normal font-brush text-bronze-800 tracking-[0.15em] mb-8">設壇安座大典</p>
+      <h1 class="text-6xl md:text-7xl lg:text-8xl font-normal font-brush text-templeRed-800 tracking-[0.1em] leading-snug mb-3">聖德壇</h1>
+      <p class="text-3xl md:text-4xl lg:text-5xl font-normal font-brush text-bronze-800 tracking-[0.15em] mb-8">設壇安座大典</p>
       <div class="w-12 h-[1px] bg-templeGold-500 mb-6"></div>
-      <p class="text-xs md:text-sm tracking-[0.3em] font-semibold text-templeGold-700 uppercase">誠摯邀約 • 同霑法喜</p>
+      <p class="text-base md:text-lg tracking-[0.3em] font-semibold text-templeGold-700 uppercase">誠摯邀約 • 同霑法喜</p>
     </div>
   </header>
 
   <!-- 邀請內容 -->
   <section class="max-w-3xl mx-auto px-4 py-12 text-center fade-in-slide-up" style="animation-delay: 200ms;">
     <div class="temple-border-box p-8 md:p-14 rounded-2xl shadow-xl">
-      <div class="text-templeGold-700 text-sm mb-6 flex justify-center items-center gap-2">
+      <div class="text-templeGold-700 text-base md:text-lg mb-6 flex justify-center items-center gap-2">
         <span class="h-[1px] w-6 bg-templeGold-500/40"></span>
         <span class="tracking-[0.25em] font-semibold">天人共慶 • 凝聚善念</span>
         <span class="h-[1px] w-6 bg-templeGold-500/40"></span>
       </div>
-      <p class="text-lg md:text-xl font-bold text-templeRed-800 tracking-[0.15em] mb-8">各位親愛的朋友，大家好：</p>
+      <p class="text-xl md:text-2xl font-bold text-templeRed-800 tracking-[0.15em] mb-8">各位親愛的朋友，大家好：</p>
       <div class="space-y-6 text-bronze-800 leading-relaxed tracking-[0.15em] text-base md:text-lg font-light">
         <p>懷著感恩與喜悅的心情，和大家分享一個特別的好消息！</p>
         <p>經過一段時間的籌備，我們即將迎來一個溫馨的新空間 —— <strong class="text-templeRed-800 font-semibold">「聖德壇」</strong> 正式啟用。</p>
@@ -151,7 +154,7 @@
         <p class="font-medium">期待與您相聚！祝福大家平安、順心、喜樂！</p>
       </div>
       <div class="mt-8 flex justify-center">
-        <i class="fa-solid fa-peace text-templeGold-600 text-xl animate-pulse"></i>
+        <i class="fa-solid fa-peace text-templeGold-600 text-2xl animate-pulse"></i>
       </div>
     </div>
   </section>
@@ -159,23 +162,23 @@
   <!-- 倒數計時 -->
   <section class="bg-gradient-to-r from-templeRed-900 to-templeRed-800 text-white py-12 px-4 shadow-lg">
     <div class="max-w-3xl mx-auto text-center">
-      <h3 class="text-templeGold-500 font-medium tracking-[0.2em] text-sm md:text-base mb-6">—— 距離安座莊嚴大典還有 ——</h3>
+      <h3 class="text-templeGold-500 font-medium tracking-[0.2em] text-base md:text-lg mb-6">—— 距離安座莊嚴大典還有 ——</h3>
       <div class="grid grid-cols-4 gap-3 max-w-sm mx-auto" id="countdown">
         <div class="bg-black/15 p-3 rounded-xl border border-templeGold-500/10">
-          <span id="days" class="block text-2xl md:text-3xl font-bold text-templeGold-500">00</span>
-          <span class="text-[10px] tracking-wider text-templeGold-100 mt-1 block">天</span>
+          <span id="days" class="block text-3xl md:text-4xl font-bold text-templeGold-500">00</span>
+          <span class="text-xs tracking-wider text-templeGold-100 mt-1 block">天</span>
         </div>
         <div class="bg-black/15 p-3 rounded-xl border border-templeGold-500/10">
-          <span id="hours" class="block text-2xl md:text-3xl font-bold text-templeGold-500">00</span>
-          <span class="text-[10px] tracking-wider text-templeGold-100 mt-1 block">時</span>
+          <span id="hours" class="block text-3xl md:text-4xl font-bold text-templeGold-500">00</span>
+          <span class="text-xs tracking-wider text-templeGold-100 mt-1 block">時</span>
         </div>
         <div class="bg-black/15 p-3 rounded-xl border border-templeGold-500/10">
-          <span id="minutes" class="block text-2xl md:text-3xl font-bold text-templeGold-500">00</span>
-          <span class="text-[10px] tracking-wider text-templeGold-100 mt-1 block">分</span>
+          <span id="minutes" class="block text-3xl md:text-4xl font-bold text-templeGold-500">00</span>
+          <span class="text-xs tracking-wider text-templeGold-100 mt-1 block">分</span>
         </div>
         <div class="bg-black/15 p-3 rounded-xl border border-templeGold-500/10">
-          <span id="seconds" class="block text-2xl md:text-3xl font-bold text-templeGold-500">00</span>
-          <span class="text-[10px] tracking-wider text-templeGold-100 mt-1 block">秒</span>
+          <span id="seconds" class="block text-3xl md:text-4xl font-bold text-templeGold-500">00</span>
+          <span class="text-xs tracking-wider text-templeGold-100 mt-1 block">秒</span>
         </div>
       </div>
     </div>
@@ -183,64 +186,62 @@
 
   <!-- 流程表 -->
   <section id="program" class="max-w-3xl mx-auto px-4 py-16">
-    <h2 class="text-2xl md:text-3xl font-bold text-center text-templeRed-800 tracking-[0.2em] mb-12 flex justify-center items-center gap-3">
-      <i class="fa-solid fa-star text-templeGold-500 text-sm"></i>
+    <h2 class="text-3xl md:text-4xl font-bold text-center text-templeRed-800 tracking-[0.2em] mb-12 flex justify-center items-center gap-3">
+      <i class="fa-solid fa-star text-templeGold-500 text-base"></i>
       <span>流程表</span>
-      <i class="fa-solid fa-star text-templeGold-500 text-sm"></i>
+      <i class="fa-solid fa-star text-templeGold-500 text-base"></i>
     </h2>
     <div class="relative border-l border-templeGold-500/30 ml-4 md:ml-16 space-y-8 py-2">
       <div class="relative pl-8 md:pl-12">
         <span class="absolute -left-[6px] top-2.5 w-3 h-3 rounded-full bg-templeGold-500 shadow-sm"></span>
         <div class="bg-white/80 backdrop-blur-md p-6 rounded-2xl shadow-sm border border-templeGold-500/10 hover:shadow-md transition-all">
-          <span class="inline-block text-[11px] font-bold px-2.5 py-0.5 bg-templeGold-100 text-templeGold-700 rounded mb-2">12:00 PM</span>
-          <h4 class="text-lg font-bold text-templeRed-800 mb-1 tracking-[0.1em]">自助餐</h4>
-          <p class="text-gray-600 text-sm md:text-base tracking-[0.1em]">享用平安齋，共享歡樂</p>
+          <span class="inline-block text-sm font-bold px-3 py-1 bg-templeGold-100 text-templeGold-700 rounded mb-2">12:00 PM</span>
+          <h4 class="text-xl font-bold text-templeRed-800 mb-1 tracking-[0.1em]">自助餐</h4>
+          <p class="text-gray-600 text-base md:text-lg tracking-[0.1em]">享用平安齋，共享歡樂</p>
         </div>
       </div>
       <div class="relative pl-8 md:pl-12">
         <span class="absolute -left-[6px] top-2.5 w-3 h-3 rounded-full bg-templeGold-500 shadow-sm"></span>
         <div class="bg-white/80 backdrop-blur-md p-6 rounded-2xl shadow-sm border border-templeGold-500/10 hover:shadow-md transition-all">
-          <span class="inline-block text-[11px] font-bold px-2.5 py-0.5 bg-templeGold-100 text-templeGold-700 rounded mb-2">01:00 PM</span>
-          <h4 class="text-lg font-bold text-templeRed-800 mb-1 tracking-[0.1em]">點亮心燈 • 開啟智慧</h4>
-          <p class="text-gray-600 text-sm md:text-base tracking-[0.1em]">祈福，福慧雙修</p>
+          <span class="inline-block text-sm font-bold px-3 py-1 bg-templeGold-100 text-templeGold-700 rounded mb-2">01:00 PM</span>
+          <h4 class="text-xl font-bold text-templeRed-800 mb-1 tracking-[0.1em]">點亮心燈 • 開啟智慧</h4>
+          <p class="text-gray-600 text-base md:text-lg tracking-[0.1em]">祈福，福慧雙修</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 設壇日期與地點（內含活動時間） -->
+  <!-- 設壇日期與地點 -->
   <section class="border-y border-templeGold-500/10 py-16 px-4">
     <div class="max-w-3xl mx-auto">
-      <h2 class="text-2xl md:text-3xl font-bold text-center text-templeRed-800 tracking-[0.2em] mb-12">📍 設壇日期與地點</h2>
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-templeRed-800 tracking-[0.2em] mb-12">📍 設壇日期與地點</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <!-- 時間卡片（含日期與活動時間） -->
         <div class="bg-white/85 backdrop-blur-md p-8 rounded-2xl shadow-sm border border-templeGold-500/20 flex flex-col items-center text-center">
-          <div class="w-11 h-11 rounded-full bg-templeGold-100 text-templeGold-700 flex items-center justify-center text-lg mb-4">
+          <div class="w-12 h-12 rounded-full bg-templeGold-100 text-templeGold-700 flex items-center justify-center text-xl mb-4">
             <i class="fa-regular fa-calendar-days"></i>
           </div>
-          <h3 class="text-lg font-bold text-templeRed-800 mb-4 tracking-[0.15em]">📅 設壇日期</h3>
+          <h3 class="text-xl font-bold text-templeRed-800 mb-4 tracking-[0.15em]">📅 設壇日期</h3>
           <div class="space-y-2 text-bronze-800 font-medium text-base tracking-[0.1em]">
-            <p>國曆：2026年9月16日</p>
-            <p class="text-gray-500 text-sm">（星期三）</p>
+            <p class="text-lg">國曆：2026年9月16日</p>
+            <p class="text-gray-500 text-base">（星期三）</p>
             <hr class="border-gray-100 my-2">
-            <p class="text-templeGold-700 font-semibold">農曆：丙午年 八月初六日</p>
+            <p class="text-templeGold-700 font-semibold text-lg">農曆：丙午年 八月初六日</p>
             <hr class="border-gray-100 my-2">
-            <p class="text-templeRed-800 font-semibold">⏰ 活動時間：12:00 PM - 03:00 PM</p>
+            <p class="text-templeRed-800 font-semibold text-lg">⏰ 活動時間：12:00 PM - 03:00 PM</p>
           </div>
         </div>
-        <!-- 地點 -->
         <div class="bg-white/85 backdrop-blur-md p-8 rounded-2xl shadow-sm border border-templeGold-500/20 flex flex-col items-center text-center justify-between">
           <div class="flex flex-col items-center">
-            <div class="w-11 h-11 rounded-full bg-templeGold-100 text-templeGold-700 flex items-center justify-center text-lg mb-4">
+            <div class="w-12 h-12 rounded-full bg-templeGold-100 text-templeGold-700 flex items-center justify-center text-xl mb-4">
               <i class="fa-solid fa-location-dot"></i>
             </div>
-            <h3 class="text-lg font-bold text-templeRed-800 mb-4 tracking-[0.15em]">📍 佛堂地址</h3>
-            <p class="text-gray-600 leading-relaxed text-sm md:text-base px-2 tracking-[0.1em]">
+            <h3 class="text-xl font-bold text-templeRed-800 mb-4 tracking-[0.15em]">📍 佛堂地址</h3>
+            <p class="text-gray-600 leading-relaxed text-base md:text-lg px-2 tracking-[0.1em]">
               22-2, Jalan SL 1/11, Bandar Sungai Long, 43000 Kajang, Selangor.
             </p>
           </div>
           <div class="mt-6 w-full">
-            <a href="https://maps.app.goo.gl/LyhjTy5JeHxr8f5Q8?g_st=aw" target="_blank" class="shine-effect w-full py-3 px-6 bg-gradient-to-r from-templeGold-600 to-templeGold-700 hover:from-templeGold-700 hover:to-templeGold-600 text-white rounded-xl shadow-md transition-all transform hover:-translate-y-0.5 font-bold flex items-center justify-center gap-2 text-sm tracking-[0.15em]">
+            <a href="https://maps.app.goo.gl/LyhjTy5JeHxr8f5Q8?g_st=aw" target="_blank" class="shine-effect w-full py-3 px-6 bg-gradient-to-r from-templeGold-600 to-templeGold-700 hover:from-templeGold-700 hover:to-templeGold-600 text-white rounded-xl shadow-md transition-all transform hover:-translate-y-0.5 font-bold flex items-center justify-center gap-2 text-base tracking-[0.15em]">
               <i class="fa-solid fa-map-location-dot"></i>
               <span>開啟 Google Maps 導航</span>
             </a>
@@ -250,55 +251,55 @@
     </div>
   </section>
 
-  <!-- 出席登記（說明文字改為「為方便準備餐點安排」） -->
+  <!-- 出席登記 -->
   <section id="rsvp" class="max-w-xl mx-auto px-4 py-16">
     <div class="bg-white/90 backdrop-blur-md p-8 md:p-10 rounded-2xl shadow-xl border border-templeGold-500/20">
-      <h2 class="text-xl md:text-2xl font-bold text-center text-templeRed-800 tracking-[0.15em] mb-2">📋 出席登記</h2>
-      <p class="text-xs md:text-sm text-gray-500 text-center mb-8 tracking-[0.1em]">為方便準備餐點安排，請填寫以下資料：</p>
+      <h2 class="text-2xl md:text-3xl font-bold text-center text-templeRed-800 tracking-[0.15em] mb-2">📋 出席登記</h2>
+      <p class="text-base md:text-lg text-gray-500 text-center mb-8 tracking-[0.1em]">為方便準備餐點安排，請填寫以下資料：</p>
 
       <form id="rsvpForm" class="space-y-6">
         <div>
-          <label class="block text-sm font-bold text-bronze-800 mb-2 tracking-[0.1em]">姓名</label>
-          <input type="text" id="rsvpName" required placeholder="請輸入您的姓名或稱呼" class="w-full px-4 py-2.5 bg-white/70 border border-gray-300 rounded-xl focus:ring-1 focus:ring-templeGold-500 focus:border-templeGold-500 outline-none transition-all placeholder-gray-400 text-sm tracking-[0.1em]">
+          <label class="block text-base font-bold text-bronze-800 mb-2 tracking-[0.1em]">姓名</label>
+          <input type="text" id="rsvpName" required placeholder="請輸入您的姓名或稱呼" class="w-full px-4 py-3 bg-white/70 border border-gray-300 rounded-xl focus:ring-1 focus:ring-templeGold-500 focus:border-templeGold-500 outline-none transition-all placeholder-gray-400 text-base tracking-[0.1em]">
         </div>
         <div>
-          <label class="block text-sm font-bold text-bronze-800 mb-2 tracking-[0.1em]">聯絡電話</label>
-          <input type="tel" id="rsvpPhone" required placeholder="例如：012-345 6789" class="w-full px-4 py-2.5 bg-white/70 border border-gray-300 rounded-xl focus:ring-1 focus:ring-templeGold-500 focus:border-templeGold-500 outline-none transition-all placeholder-gray-400 text-sm tracking-[0.1em]">
+          <label class="block text-base font-bold text-bronze-800 mb-2 tracking-[0.1em]">聯絡電話</label>
+          <input type="tel" id="rsvpPhone" required placeholder="例如：012-345 6789" class="w-full px-4 py-3 bg-white/70 border border-gray-300 rounded-xl focus:ring-1 focus:ring-templeGold-500 focus:border-templeGold-500 outline-none transition-all placeholder-gray-400 text-base tracking-[0.1em]">
         </div>
         <div>
-          <label class="block text-sm font-bold text-bronze-800 mb-2 tracking-[0.1em]">同行出席人數</label>
+          <label class="block text-base font-bold text-bronze-800 mb-2 tracking-[0.1em]">同行出席人數</label>
           <div class="grid grid-cols-2 gap-4">
             <div class="flex flex-col items-center p-3 bg-white/60 border border-gray-200 rounded-xl shadow-inner">
-              <span class="text-xs font-bold text-gray-600 mb-2 tracking-[0.1em]">大人 (12歲以上)</span>
+              <span class="text-sm font-bold text-gray-600 mb-2 tracking-[0.1em]">大人 (12歲以上)</span>
               <div class="flex items-center gap-3">
-                <button type="button" onclick="changeCount('adults', -1)" class="w-8 h-8 rounded-full border border-templeGold-500 text-templeGold-700 flex items-center justify-center font-bold hover:bg-templeGold-100 transition-all focus:outline-none select-none active:scale-90">-</button>
-                <span id="adultsCount" class="w-8 text-center font-bold text-bronze-800 text-lg">1</span>
-                <button type="button" onclick="changeCount('adults', 1)" class="w-8 h-8 rounded-full border border-templeGold-500 text-templeGold-700 flex items-center justify-center font-bold hover:bg-templeGold-100 transition-all focus:outline-none select-none active:scale-90">+</button>
+                <button type="button" onclick="changeCount('adults', -1)" class="w-9 h-9 rounded-full border border-templeGold-500 text-templeGold-700 flex items-center justify-center font-bold hover:bg-templeGold-100 transition-all focus:outline-none select-none active:scale-90 text-lg">-</button>
+                <span id="adultsCount" class="w-10 text-center font-bold text-bronze-800 text-2xl">1</span>
+                <button type="button" onclick="changeCount('adults', 1)" class="w-9 h-9 rounded-full border border-templeGold-500 text-templeGold-700 flex items-center justify-center font-bold hover:bg-templeGold-100 transition-all focus:outline-none select-none active:scale-90 text-lg">+</button>
               </div>
             </div>
             <div class="flex flex-col items-center p-3 bg-white/60 border border-gray-200 rounded-xl shadow-inner">
-              <span class="text-xs font-bold text-gray-600 mb-2 tracking-[0.1em]">兒童 (12歲以下)</span>
+              <span class="text-sm font-bold text-gray-600 mb-2 tracking-[0.1em]">兒童 (12歲以下)</span>
               <div class="flex items-center gap-3">
-                <button type="button" onclick="changeCount('children', -1)" class="w-8 h-8 rounded-full border border-templeGold-500 text-templeGold-700 flex items-center justify-center font-bold hover:bg-templeGold-100 transition-all focus:outline-none select-none active:scale-90">-</button>
-                <span id="childrenCount" class="w-8 text-center font-bold text-bronze-800 text-lg">0</span>
-                <button type="button" onclick="changeCount('children', 1)" class="w-8 h-8 rounded-full border border-templeGold-500 text-templeGold-700 flex items-center justify-center font-bold hover:bg-templeGold-100 transition-all focus:outline-none select-none active:scale-90">+</button>
+                <button type="button" onclick="changeCount('children', -1)" class="w-9 h-9 rounded-full border border-templeGold-500 text-templeGold-700 flex items-center justify-center font-bold hover:bg-templeGold-100 transition-all focus:outline-none select-none active:scale-90 text-lg">-</button>
+                <span id="childrenCount" class="w-10 text-center font-bold text-bronze-800 text-2xl">0</span>
+                <button type="button" onclick="changeCount('children', 1)" class="w-9 h-9 rounded-full border border-templeGold-500 text-templeGold-700 flex items-center justify-center font-bold hover:bg-templeGold-100 transition-all focus:outline-none select-none active:scale-90 text-lg">+</button>
               </div>
             </div>
           </div>
         </div>
-        <button type="button" onclick="submitRSVP()" class="shine-effect w-full py-3.5 px-6 bg-gradient-to-r from-templeGold-600 to-templeGold-700 hover:from-templeGold-700 hover:to-templeGold-600 text-white rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-bold flex items-center justify-center gap-2 text-base transition-all tracking-[0.2em]">
-          <i class="fa-regular fa-circle-check text-lg"></i>
+        <button type="button" onclick="submitRSVP()" class="shine-effect w-full py-4 px-6 bg-gradient-to-r from-templeGold-600 to-templeGold-700 hover:from-templeGold-700 hover:to-templeGold-600 text-white rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-bold flex items-center justify-center gap-2 text-lg transition-all tracking-[0.2em]">
+          <i class="fa-regular fa-circle-check text-xl"></i>
           <span>確認提交出席登記</span>
         </button>
-        <p class="text-center text-[11px] text-gray-400 tracking-[0.05em]">* 您登記的資料將用於準備餐點安排，感恩。</p>
+        <p class="text-center text-sm text-gray-400 tracking-[0.05em]">* 您登記的資料將用於準備餐點安排，感恩。</p>
       </form>
     </div>
   </section>
 
   <!-- 聯絡資訊 -->
   <section class="max-w-3xl mx-auto px-4 pb-16 text-center">
-    <h3 class="text-base font-bold text-templeRed-800 mb-6 tracking-widest">📞 聯絡諮詢</h3>
-    <div class="flex flex-col sm:flex-row justify-center gap-4 text-sm">
+    <h3 class="text-xl font-bold text-templeRed-800 mb-6 tracking-widest">📞 聯絡諮詢</h3>
+    <div class="flex flex-col sm:flex-row justify-center gap-4 text-base">
       <a href="tel:+60176999738" class="flex items-center justify-center gap-2 px-6 py-3 bg-white/80 backdrop-blur-sm border border-gray-100 rounded-xl shadow-sm text-gray-700 hover:text-templeRed-800 transition-colors tracking-[0.1em]">
         <i class="fa-solid fa-phone text-templeGold-500"></i>
         <span>李真 ：017-699 9738</span>
@@ -313,9 +314,9 @@
   <!-- 頁尾 -->
   <footer class="mt-auto bg-gradient-to-b from-gray-900 to-black text-gray-400 py-12 px-4 text-center border-t-2 border-templeGold-500">
     <div class="max-w-3xl mx-auto space-y-4">
-      <p class="text-templeGold-500 text-lg tracking-[0.25em] font-medium">—— 聖德壇全體壇主道親 鞠躬敬邀 ——</p>
-      <p class="text-sm tracking-widest text-gray-500">期待前賢們慈悲蒞臨，為佛堂增添無上光彩！</p>
-      <div class="pt-6 text-[10px] text-gray-600 space-y-1">
+      <p class="text-templeGold-500 text-xl tracking-[0.25em] font-medium">—— 聖德壇全體壇主道親 鞠躬敬邀 ——</p>
+      <p class="text-base tracking-widest text-gray-500">期待前賢們慈悲蒞臨，為佛堂增添無上光彩！</p>
+      <div class="pt-6 text-sm text-gray-600 space-y-1">
         <p>© 2026 聖德壇設壇安座大典籌備委員會. 保留所有權利。</p>
         <p>精心設計，莊嚴呈現。</p>
       </div>
@@ -326,13 +327,13 @@
   <div id="successModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-md px-4">
     <div class="bg-white/95 border border-templeGold-500/20 p-8 max-w-sm w-full rounded-2xl shadow-2xl text-center space-y-5">
       <div class="w-16 h-16 bg-templeGold-100 text-templeGold-700 rounded-full flex items-center justify-center text-3xl mx-auto animate-bounce">🙏</div>
-      <h3 class="text-xl font-bold text-templeRed-800 tracking-[0.1em]">登記成功</h3>
-      <div class="text-gray-600 text-sm leading-relaxed space-y-2 tracking-[0.1em]">
+      <h3 class="text-2xl font-bold text-templeRed-800 tracking-[0.1em]">登記成功</h3>
+      <div class="text-gray-600 text-base leading-relaxed space-y-2 tracking-[0.1em]">
         <p class="font-bold">感恩天恩師德！</p>
         <p>您的出席資料已登記成功。</p>
         <p>聖德壇全體壇主，滿懷法喜期待您蒞臨。祝福您聖凡如意、闔家平安！</p>
       </div>
-      <button onclick="closeSuccessModal()" class="w-full py-2.5 bg-gradient-to-r from-templeGold-600 to-templeGold-700 text-white rounded-xl font-bold text-sm tracking-widest hover:from-templeGold-700 hover:to-templeGold-600 shadow-md transition-all">法喜充滿 (確認)</button>
+      <button onclick="closeSuccessModal()" class="w-full py-3 bg-gradient-to-r from-templeGold-600 to-templeGold-700 text-white rounded-xl font-bold text-base tracking-widest hover:from-templeGold-700 hover:to-templeGold-600 shadow-md transition-all">法喜充滿 (確認)</button>
     </div>
   </div>
 
@@ -344,7 +345,7 @@
       const distance = ceremonyDate - now;
       if (distance < 0) {
         document.getElementById("countdown").innerHTML = `
-          <div class="col-span-4 bg-templeGold-500/10 text-templeGold-700 p-4 rounded-xl font-bold tracking-widest text-sm">
+          <div class="col-span-4 bg-templeGold-500/10 text-templeGold-700 p-4 rounded-xl font-bold tracking-widest text-base">
             ✨ 設壇安座大典進行中 / 圓滿禮讚 ✨
           </div>
         `;
@@ -362,14 +363,25 @@
     setInterval(updateCountdown, 1000);
     updateCountdown();
 
-    // 背景音樂
+    // 背景音樂 - 鈴鐺控制
     const bgMusic = document.getElementById("bgMusic");
     const musicBtn = document.getElementById("musicBtn");
     const musicIcon = document.getElementById("musicIcon");
     let isPlaying = false;
 
+    // 頁面載入時自動播放音樂
     window.addEventListener('DOMContentLoaded', () => {
-      playMusic();
+      // 嘗試自動播放
+      bgMusic.play().then(() => {
+        isPlaying = true;
+        musicIcon.classList.add('text-templeGold-600');
+        musicIcon.classList.remove('text-gray-400');
+      }).catch(() => {
+        // 若自動播放被阻擋，等待用戶點擊鈴鐺
+        console.log("等待用戶點擊鈴鐺播放音樂");
+      });
+
+      // 自動滾動
       setTimeout(() => {
         let scrolled = 0;
         const step = 1.2;
@@ -389,30 +401,22 @@
       }, 1200);
     });
 
-    ['click', 'touchstart', 'scroll', 'wheel', 'touchmove'].forEach(evt => {
-      document.addEventListener(evt, () => { if (!isPlaying) playMusic(); }, { once: true });
-    });
-
-    function playMusic() {
-      bgMusic.play().then(() => {
-        musicIcon.classList.add("rotating-music");
-        musicIcon.classList.remove("fa-circle-play");
-        musicIcon.classList.add("fa-compact-disc");
-        musicIcon.classList.remove("text-gray-400");
-        isPlaying = true;
-      }).catch(e => console.log("自動播放受阻，等待用戶互動", e));
-    }
-
+    // 點擊鈴鐺切換音樂
     function toggleMusic() {
       if (isPlaying) {
         bgMusic.pause();
-        musicIcon.classList.remove("rotating-music");
-        musicIcon.classList.remove("fa-compact-disc");
-        musicIcon.classList.add("fa-circle-play");
-        musicIcon.classList.add("text-gray-400");
+        musicIcon.classList.remove('text-templeGold-600');
+        musicIcon.classList.add('text-gray-400');
         isPlaying = false;
       } else {
-        playMusic();
+        bgMusic.play().then(() => {
+          musicIcon.classList.add('text-templeGold-600');
+          musicIcon.classList.remove('text-gray-400');
+          isPlaying = true;
+          // 播放時鈴鐺晃動效果
+          musicIcon.classList.add('ringing');
+          setTimeout(() => musicIcon.classList.remove('ringing'), 1500);
+        }).catch(e => console.log("播放失敗", e));
       }
     }
 
